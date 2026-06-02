@@ -61,6 +61,12 @@ export function NavSidebar() {
         <p className="text-xs text-muted-foreground">SA tax year: 1 Mar – 28 Feb</p>
         <p className="text-xs text-muted-foreground">CIT: 27% · Trust: 45% · S7C: 9.25%</p>
         <p className="text-xs text-muted-foreground">Donations exempt: R100k p.a.</p>
+        <a
+          href="/api/auth/logout"
+          className="block text-xs text-muted-foreground hover:text-foreground pt-2 transition-colors"
+        >
+          Sign out
+        </a>
       </div>
     </aside>
   );
