@@ -20,7 +20,7 @@ async function expectedToken(): Promise<string> {
     .join('');
 }
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Always allow the login page and auth API through
