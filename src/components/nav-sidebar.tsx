@@ -16,7 +16,7 @@ const nav = [
   { label: 'Asset Register',    href: '/dashboard/assets',         icon: Layers },
   { label: 'Transactions',      href: '/dashboard/transactions',   icon: TrendingUp },
   { label: 'Import CSV',        href: '/dashboard/import',         icon: Upload },
-  { label: 'Tax Reports',       href: '/dashboard/reports',        icon: FileText, soon: true },
+  { label: 'Tax Reports',        href: '/dashboard/reports',        icon: FileText },
 ];
 
 export function NavSidebar() {
@@ -30,7 +30,7 @@ export function NavSidebar() {
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-0.5">
-        {nav.map(({ label, href, icon: Icon, soon }) => {
+        {nav.map(({ label, href, icon: Icon, soon }: { label: string; href: string; icon: any; soon?: boolean }) => {
           const active = pathname === href || (href !== '/dashboard' && pathname.startsWith(href));
           return (
             <Link
