@@ -1,6 +1,7 @@
 export type EntityType = 'trust' | 'company' | 'personal';
 export type AccountType = 'asset' | 'liability' | 'equity' | 'income' | 'expense';
 export type NormalBalance = 'debit' | 'credit';
+export type AssetType = 'property' | 'shares' | 'cash' | 'other';
 
 export interface Entity {
   id: string;
@@ -47,7 +48,6 @@ export interface Section7cLoan {
   notes: string | null;
   created_at: string;
   updated_at: string;
-  // joined
   borrower?: Entity;
 }
 
@@ -61,14 +61,91 @@ export interface Section7cPayment {
   created_at: string;
 }
 
-export type Database = {
-  public: {
-    Tables: {
-      entities: { Row: Entity; Insert: Omit<Entity, 'id' | 'created_at' | 'updated_at'>; Update: Partial<Entity> };
-      accounts: { Row: Account; Insert: Omit<Account, 'id' | 'created_at'>; Update: Partial<Account> };
-      official_rates: { Row: OfficialRate; Insert: Omit<OfficialRate, 'id' | 'created_at'>; Update: Partial<OfficialRate> };
-      section7c_loans: { Row: Section7cLoan; Insert: Omit<Section7cLoan, 'id' | 'created_at' | 'updated_at'>; Update: Partial<Section7cLoan> };
-      section7c_payments: { Row: Section7cPayment; Insert: Omit<Section7cPayment, 'id' | 'created_at'>; Update: Partial<Section7cPayment> };
-    };
-  };
-};
+export interface JournalEntry {
+  id: string;
+  entity_id: string;
+  entry_date: string;
+  description: string;
+  reference: string | null;
+  source: 'manual' | 'import';
+  is_reconciled: boolean;
+  created_at: string;
+  entity?: Entity;
+  lines?: JournalLine[];
+}
+
+export interface JournalLine {
+  id: string;
+  entry_id: string;
+  account_id: string;
+  debit: number;
+  credit: number;
+  description: string | null;
+  created_at: string;
+  account?: Account;
+}
+
+export interface Asset {
+  id: string;
+  entity_id: string;
+  name: string;
+  type: AssetType;
+  description: string | null;
+  acquisition_date: string;
+  cost_base_zar: number;
+  current_value_zar: number | null;
+  current_value_date: string | null;
+  is_disposed: boolean;
+  disposal_date: string | null;
+  disposal_proceeds_zar: number | null;
+  notes: string | null;
+  created_at: string;
+  updated_at: string;
+  entity?: Entity;
+  property_details?: AssetPropertyDetail;
+  improvements?: AssetImprovement[];
+  share_lots?: AssetShareLot[];
+}
+
+export interface AssetPropertyDetail {
+  id: string;
+  asset_id: string;
+  address: string | null;
+  erf_number: string | null;
+  property_type: 'residential' | 'commercial' | 'vacant_land' | null;
+  transfer_duty_paid: number;
+  conveyancing_fees: number;
+  building_cost_zar: number;
+  s13_rate: number;
+  s13_start_date: string | null;
+  created_at: string;
+}
+
+export interface AssetImprovement {
+  id: string;
+  asset_id: string;
+  description: string;
+  amount_zar: number;
+  date: string;
+  created_at: string;
+}
+
+export interface AssetShareLot {
+  id: string;
+  asset_id: string;
+  purchase_date: string;
+  quantity: number;
+  cost_per_unit_zar: number;
+  currency: string;
+  cost_per_unit_foreign: number | null;
+  exchange_rate_at_buy: number;
+  broker_fees_zar: number;
+  notes: string | null;
+  is_fully_disposed: boolean;
+  disposed_quantity: number;
+  disposal_date: string | null;
+  disposal_proceeds_zar: number | null;
+  created_at: string;
+}
+
+export type Database = { public: { Tables: Record<string, never> } };
