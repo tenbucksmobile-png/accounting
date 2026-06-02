@@ -29,6 +29,14 @@ Run migrations in **Supabase SQL Editor** (never via CLI — apply each file man
 supabase/migrations/001_initial_schema.sql
 supabase/migrations/002_phase2_ledger_assets.sql
 supabase/migrations/003_phase3_tax_engine.sql
+supabase/migrations/004_trust_phase5.sql
+```
+
+Run accounting SQL scripts in **Supabase SQL Editor** in this order:
+```
+Accounts/post-journal-entries-indaba-cares.sql
+Accounts/post-bank-fees-and-opening-deposit.sql
+Accounts/post-consulting-fee-and-monthly-close.sql
 ```
 
 ---
@@ -63,6 +71,19 @@ After a mutation, client components call `router.refresh()` to re-run the server
 ### Type system
 
 `src/types/database.ts` contains all hand-written TypeScript interfaces (`Entity`, `Account`, `JournalEntry`, `Asset`, etc.). The `Database` export at the bottom is a stub (`Record<string, never>`) — the typed Supabase client is **not** wired up. Server components therefore use `as any` when reading Supabase query results; this is intentional and expected.
+
+### Authentication (Phase 6)
+
+Password gate via `src/middleware.ts` — runs on every request, checks an HttpOnly signed cookie (`tenbucks-auth`). Login at `/login`, logout via `GET /api/auth/logout`. Two Vercel env vars required: `SITE_PASSWORD` and `COOKIE_SECRET`. Cookie is valid for 30 days. Changing either env var + redeploying invalidates all existing sessions.
+
+### Accounts folder
+
+`Accounts/` contains client-facing documents and Supabase SQL scripts — **not** application code. Files stored here:
+- Invoices: `INV-YYYY-NNN-Client-Month.html` — open in Chrome → Print → Save as PDF to send
+- Month-end close statements: `Month-End-Close-MMM-YYYY.html` — IFRS closing summaries with signature blocks
+- SQL scripts: `post-*.sql` — run in Supabase SQL Editor to post journal entries
+
+Invoice numbering convention: `INV-{year}-{sequence}` (e.g. `INV-2026-001`). Consulting fees: `CF-{year}-{sequence}`. Bank fees: `BF-{year}-{month}`. Closing entries: `CLOSE-{year}-{month}`.
 
 ### File layout
 
@@ -205,8 +226,9 @@ The EasyEquities share lot is a placeholder — replace with actual lots from Ea
 - **Live URL**: https://tenbucks-accounting.vercel.app
 - **GitHub**: https://github.com/tenbucksmobile-png/accounting
 - **Vercel project**: tenbucksmobile-8550s-projects/tenbucks-accounting
-- Env vars set in Vercel: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- Env vars set in Vercel: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SITE_PASSWORD`, `COOKIE_SECRET`
 - Every `git push origin master` auto-deploys via Vercel GitHub integration
+- GitHub repo is **public** (financial data lives in Supabase, not in the repo)
 
 ---
 
@@ -219,4 +241,4 @@ The EasyEquities share lot is a placeholder — replace with actual lots from Ea
 | 3 | ✅ Done | Tax engine, IRP6 tracker, what-if simulator |
 | 4 | Deferred | SARS-ready PDF report exports (IT14, IT12T, CGT schedule) — data is ready, needs PDF rendering layer |
 | 5 | ✅ Done | Trust structure: trustee register, beneficiary tax planner, distribution resolutions (S25B), life insurance register (estate duty flags) |
-| 6 | Planned | Password protection / Vercel auth |
+| 6 | ✅ Done | Password protection — middleware cookie gate, `/login` page, `SITE_PASSWORD` + `COOKIE_SECRET` env vars |
