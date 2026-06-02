@@ -148,4 +148,49 @@ export interface AssetShareLot {
   created_at: string;
 }
 
+export interface TrustTrustee {
+  id: string;
+  name: string;
+  role: string;
+  is_independent: boolean;
+  is_active: boolean;
+  notes: string | null;
+  created_at: string;
+}
+
+export interface TrustBeneficiary {
+  id: string;
+  name: string;
+  date_of_birth: string;
+  sa_resident: boolean;
+  annual_other_income: number;
+  is_active: boolean;
+  notes: string | null;
+  created_at: string;
+}
+
+export interface TrustLifePolicy {
+  id: string;
+  policy_number: string | null;
+  insurer: string;
+  insured_person: string;
+  sum_assured_zar: number;
+  annual_premium_zar: number | null;
+  trust_owns_policy: boolean;
+  notes: string | null;
+  created_at: string;
+}
+
+export interface TrustDistributionResolution {
+  id: string;
+  beneficiary_id: string;
+  tax_year: number;
+  resolution_date: string;
+  amount: number;
+  income_character: 'interest' | 'dividend' | 'rental' | 'capital_gain' | 'other';
+  notes: string | null;
+  created_at: string;
+  beneficiary?: TrustBeneficiary;
+}
+
 export type Database = { public: { Tables: Record<string, never> } };

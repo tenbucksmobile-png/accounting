@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard, Building2, BookOpen, AlertTriangle,
-  TrendingUp, FileText, Layers, Upload
+  TrendingUp, FileText, Layers, Upload, Users
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -16,7 +16,8 @@ const nav = [
   { label: 'Asset Register',    href: '/dashboard/assets',         icon: Layers },
   { label: 'Transactions',      href: '/dashboard/transactions',   icon: TrendingUp },
   { label: 'Import CSV',        href: '/dashboard/import',         icon: Upload },
-  { label: 'Tax Reports',        href: '/dashboard/reports',        icon: FileText },
+  { label: 'Tax Reports',       href: '/dashboard/reports',        icon: FileText },
+  { label: 'Trust',             href: '/dashboard/trust',          icon: Users },
 ];
 
 export function NavSidebar() {
