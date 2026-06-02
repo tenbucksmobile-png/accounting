@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>INV-2026-002 — The Sandton Indaba</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; color: #1a1a1a; background: #fff; }
+  .page { max-width: 800px; margin: 0 auto; padding: 52px; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 3px solid #1a1a1a; }
+  .company-name { font-size: 20px; font-weight: 700; }
+  .company-sub { font-size: 11px; color: #666; margin-top: 5px; line-height: 1.7; }
+  .invoice-label { text-align: right; }
+  .invoice-label h1 { font-size: 30px; font-weight: 700; letter-spacing: 3px; color: #1a1a1a; }
+  .invoice-meta { margin-top: 10px; font-size: 12px; line-height: 1.9; text-align: right; }
+  .invoice-meta .lbl { color: #888; margin-right: 8px; }
+  .bill { margin-bottom: 36px; }
+  .bill-heading { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-bottom: 6px; }
+  .bill-name { font-size: 16px; font-weight: 600; }
+  .bill-addr { font-size: 12px; color: #555; margin-top: 3px; line-height: 1.6; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+  thead th { background: #1a1a1a; color: #fff; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; text-align: left; }
+  thead th:last-child { text-align: right; }
+  tbody td { padding: 14px 16px; border-bottom: 1px solid #ebebeb; vertical-align: top; }
+  tbody td:last-child { text-align: right; font-weight: 500; white-space: nowrap; }
+  .desc-main { font-weight: 600; margin-bottom: 3px; }
+  .desc-sub { font-size: 11px; color: #666; }
+  .totals { margin-left: auto; width: 240px; }
+  .t-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 12px; color: #444; border-bottom: 1px solid #ebebeb; }
+  .t-row.grand { border-top: 2px solid #1a1a1a; border-bottom: none; margin-top: 6px; padding-top: 10px; font-size: 15px; font-weight: 700; color: #1a1a1a; }
+  .banking { margin-top: 48px; padding-top: 24px; border-top: 1px solid #ddd; }
+  .banking .bill-heading { margin-bottom: 12px; }
+  .bank-grid { display: grid; grid-template-columns: 140px 1fr; row-gap: 6px; font-size: 12px; }
+  .bank-grid .lbl { color: #888; }
+  .note { margin-top: 36px; padding: 14px 16px; background: #f7f7f7; border-left: 3px solid #1a1a1a; font-size: 12px; color: #444; line-height: 1.6; }
+  .footer { margin-top: 48px; text-align: center; font-size: 11px; color: #bbb; }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 36px; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="company-name">tenbucks-mobile (Pty) Ltd</div>
+      <div class="company-sub">
+        Registration: [Reg Number]<br>
+        [Street Address]<br>
+        [City, Province, Postal Code]<br>
+        VAT Reg: [VAT Number if applicable]
+      </div>
+    </div>
+    <div class="invoice-label">
+      <h1>INVOICE</h1>
+      <div class="invoice-meta">
+        <div><span class="lbl">Invoice No</span><strong>INV-2026-002</strong></div>
+        <div><span class="lbl">Date</span>01 April 2026</div>
+        <div><span class="lbl">Due Date</span>30 April 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bill">
+    <div class="bill-heading">Bill To</div>
+    <div class="bill-name">The Sandton Indaba</div>
+    <div class="bill-addr">[Client Address]</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Period</th>
+        <th>Amount (ZAR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="desc-main">Indaba Cares App — Monthly License Fee</div>
+          <div class="desc-sub">Software license for use of the Indaba Cares application</div>
+        </td>
+        <td style="white-space:nowrap; color:#444;">April 2026</td>
+        <td>R&nbsp;9,800.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totals">
+    <div class="t-row"><span>Subtotal</span><span>R 9,800.00</span></div>
+    <div class="t-row"><span>VAT (if applicable)</span><span>—</span></div>
+    <div class="t-row grand"><span>Total Due</span><span>R 9,800.00</span></div>
+  </div>
+
+  <div class="banking">
+    <div class="bill-heading">Banking Details</div>
+    <div class="bank-grid">
+      <span class="lbl">Bank</span><span>[Bank Name]</span>
+      <span class="lbl">Account Name</span><span>tenbucks-mobile (Pty) Ltd</span>
+      <span class="lbl">Account Number</span><span>[Account Number]</span>
+      <span class="lbl">Branch Code</span><span>[Branch Code]</span>
+      <span class="lbl">Reference</span><strong>INV-2026-002</strong>
+    </div>
+  </div>
+
+  <div class="note">
+    Please use <strong>INV-2026-002</strong> as your payment reference. Payment due within 30 days of invoice date.
+  </div>
+
+  <div class="footer">
+    tenbucks-mobile (Pty) Ltd &nbsp;·&nbsp; Thank you for your business.
+  </div>
+
+</div>
+</body>
+</html>
