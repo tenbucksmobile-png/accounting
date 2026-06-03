@@ -141,10 +141,10 @@ Three migrations, all applied manually via Supabase SQL Editor.
 ### Core tables (001)
 | Table | Purpose |
 |---|---|
-| `entities` | Trust + company records. Pre-seeded with both entities. |
-| `accounts` | Chart of accounts per entity (double-entry, SA GAAP). Pre-seeded ~40 accounts per entity. |
+| `entities` | All entities. After migration 005: 4 entities — Trust, tenbucks-mobile, Maria (Personal), Bonthuys Developments. |
+| `accounts` | Chart of accounts per entity (double-entry, SA GAAP). Trust has additional property accounts added by migration 005. |
 | `official_rates` | SARS official interest rate (Section 7C). **Update quarterly** by inserting a new row. Currently 9.25%. |
-| `section7c_loans` | Natural person loans to trust-connected entities. Pre-seeded: R345,000 land transfer. |
+| `section7c_loans` | Natural person loans to trust-connected entities. The seeded R345k loan is **deactivated** (migration 005) — the land has not been transferred. Re-activate when an actual S7C loan is made. |
 | `section7c_payments` | Interest payments per loan per tax year. |
 
 ### Ledger + assets (002)
@@ -152,10 +152,10 @@ Three migrations, all applied manually via Supabase SQL Editor.
 |---|---|
 | `journal_entries` | Double-entry journal header (entity, date, description, source). |
 | `journal_lines` | Debit/credit lines per entry. CHECK: debit > 0 OR credit > 0, not both. |
-| `assets` | Asset register: property, shares, cash. Pre-seeded: Vacant Land (R345k, tenbucks-mobile) + EasyEquities USD (R200k, trust). |
+| `assets` | Asset register. After migration 005: Vacant Land + EasyEquities are assigned to **Maria J. Bonthuys (Personal)** — not yet transferred to any other entity. |
 | `asset_property_details` | Property-specific: address, ERF, transfer duty, S13 building allowance rate. |
 | `asset_improvements` | Capital improvements (add to CGT base cost). |
-| `asset_share_lots` | Per-lot share tracking with ZAR cost base + foreign currency support. |
+| `asset_share_lots` | Per-lot share tracking with ZAR cost base + foreign currency support. EasyEquities lot is a placeholder — update with actual lots from EasyEquities history. |
 
 ### Tax engine (003)
 | Table | Purpose |
@@ -164,13 +164,55 @@ Three migrations, all applied manually via Supabase SQL Editor.
 | `provisional_tax` | IRP6 P1/P2 records for tenbucks-mobile. P1 due 31 Aug 2026, P2 due 28 Feb 2027. |
 | `income_adjustments` | Manual tax add-backs/deductions per entity per year. |
 
-### Trust structure (004)
+### Trust structure (004 + 005)
 | Table | Purpose |
 |---|---|
-| `trust_trustees` | Trustee register. Pre-seeded: Marius Bonthuys (founder), Tanja Van Holdt (independent attorney), Maria Bonthuys. |
-| `trust_beneficiaries` | Beneficiary register. Pre-seeded: Dajahn Bonthuys (major, DOB needs confirming) + Shone Bonthuys (minor, DOB needs confirming). Update DOBs from birth certificates. |
-| `trust_life_policies` | Life insurance policies. `trust_owns_policy = true` = policy ceded to trust (outside estate); `false` = trust merely named beneficiary (inside estate for estate duty). |
-| `trust_distribution_resolutions` | Formal trustee distribution resolutions per beneficiary per tax year. `income_character` tracks S25B character (interest/dividend/rental/capital_gain/other). |
+| `trust_trustees` | After migration 005: Maria Bonthuys (Founder & Trustee), Marius Bonthuys (Trustee — son of founder), Tanja Van Holdt (Independent Trustee, Attorney). |
+| `trust_beneficiaries` | After migration 005: Dajahn Nume Bonthuys (adult, no S7(3)) + Shone Riani Bonthuys (minor, S7(3) applies). **DOBs are placeholder dates — update from birth certificates before first use.** |
+| `trust_life_policies` | After migration 005: Marius's R10m policy seeded with `trust_owns_policy = false` (currently in his estate). Update to `true` and add policy number/premium after cession to trust. |
+| `trust_distribution_resolutions` | Formal trustee resolutions per beneficiary per tax year. `income_character` tracks S25B character (rental/dividend/capital_gain/other). Must be passed before 28 Feb each year. |
+
+---
+
+## Trust Deed
+
+**File:** `Accounts/TrustDeed-Bonthuys-Family-Trust-2026.html` — open in Chrome → Print → Save as PDF for submission.
+
+**Status:** Draft — not yet signed or registered. Pending submission to the **Master of the High Court** (not the magistrate).
+
+### Still to be completed before signing
+| Field | Where in deed |
+|---|---|
+| Maria's ID number | Clause 2.1 (definition of Founder) + signature block |
+| Marius's ID number | Clause 7.1 |
+| Tanja Van Holdt's ID number + law firm | Clause 7.1 |
+| Dajahn Nume Bonthuys — exact DOB + ID | Clause 6.1(b) |
+| Shone Riani Bonthuys — exact DOB + ID | Clause 6.1(a) |
+| Signing date and place | Clause 20 / cover page |
+| Trust IT number | Cover page + Annexure E (assigned by SARS after registration) |
+
+### Key clauses
+- **Clause 6.2 — Secondary beneficiaries:** Cascades through the Bonthuys bloodline in five tiers — (1) descendants of Shone and Dajahn; (2) other lineal descendants of Maria; (3) siblings of Marius and their descendants; (4) siblings of Maria and their descendants; (5) any blood relative of Maria within the 4th degree of consanguinity. No NGO fallback.
+- **Clause 9.2 — Investment property:** Rental apartments are acquired directly in the trust (not in any company). Trust holds them as capital assets. The buy-and-hold portfolio must never mix with trading stock in Bonthuys Developments.
+- **Clause 12 — Annual income distribution:** Trustees are directed to distribute all trust income to beneficiaries before 28 February each SA tax year to avoid the 45% undistributed income rate. Income retains its character (S25B) when distributed. Minor beneficiary distributions (Shone) should be minimised while she is under 18 — prefer Dajahn (adult, no Section 7(3) attribution).
+- **Clause 8.2 — Independent trustee veto:** Tanja Van Holdt must sign every significant decision: property acquisition/disposal over R500k, loans to connected persons, capital distributions over R500k, amendments, new beneficiaries.
+- **Clause 5 — Non-domination:** Maria as Founder-Trustee must not unilaterally direct trust decisions after Letters of Authority are issued — this is the primary sham trust risk. All decisions must be genuine joint trustee resolutions with Tanja signing.
+
+### What the deed does NOT contain — by design
+The deed does not name tenbucks-mobile or any specific asset as a trust holding. This is intentional — assets enter and leave a trust over its lifetime and naming them creates rigidity requiring Master approval to amend. Specific ownership is recorded via:
+- tenbucks-mobile's **share register at CIPC** (lists the trust as shareholder post-transfer)
+- **CIPC Beneficial Ownership Register** (FICA 2023 requirement — filed post-registration)
+- **Trust financial statements** (balance sheet shows "Investment in tenbucks-mobile")
+
+### Post-registration action sequence
+1. Open trust bank account in trust's name
+2. Register with SARS → receive IT12T number → update deed cover page
+3. File Beneficial Ownership Register with CIPC
+4. Transfer tenbucks-mobile shares to trust (do while company equity is low — currently ~R25k retained earnings)
+5. Cede Marius's R10m life policy to trust; trust pays premiums → update `trust_owns_policy = true`
+6. Execute management fee service agreement between tenbucks-mobile and trust
+7. Maria and Marius each donate R100k to trust annually (within exemption, no donations tax)
+8. Trust purchases first rental apartment directly (trust takes bond, Maria + Marius as sureties)
 
 ---
 
