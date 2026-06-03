@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bonthuys Family Trust — Trust Deed 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; font-size: 12px; color: #1a1a1a; background: #fff; line-height: 1.7; }
+  .page { max-width: 800px; margin: 0 auto; padding: 60px 64px; }
+
+  /* Cover */
+  .cover { text-align: center; padding: 60px 0 80px; border-bottom: 3px solid #1a1a1a; margin-bottom: 48px; }
+  .cover .trust-name { font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .cover .deed-title { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #333; margin-bottom: 32px; }
+  .cover .descriptor { font-size: 11px; color: #555; font-style: italic; margin-bottom: 40px; line-height: 1.8; }
+  .cover .cover-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }
+  .cover .cover-table td { padding: 6px 12px; border-bottom: 1px solid #e0e0e0; }
+  .cover .cover-table td:first-child { font-weight: 700; width: 40%; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+  .cover .version { margin-top: 40px; font-size: 10px; color: #999; }
+
+  /* Sections */
+  .toc { margin-bottom: 48px; padding: 20px 24px; background: #f8f8f8; border-left: 4px solid #1a1a1a; }
+  .toc h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { font-size: 11px; padding: 2px 0; color: #333; }
+
+  h2.clause-heading { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 32px 0 12px; padding-top: 28px; border-top: 1px solid #ddd; }
+  h2.clause-heading.first { border-top: none; padding-top: 0; }
+  .clause-num { color: #666; font-size: 10px; margin-right: 6px; }
+
+  .sub-clause { margin: 8px 0 8px 24px; }
+  .sub-clause p { margin-bottom: 6px; }
+  .sub-num { display: inline-block; min-width: 36px; font-weight: 600; color: #444; }
+  .sub-sub { margin-left: 36px; margin-top: 4px; }
+  .sub-sub-num { display: inline-block; min-width: 36px; color: #666; }
+
+  p { margin-bottom: 8px; }
+  .important { background: #fffbeb; border-left: 3px solid #d97706; padding: 10px 14px; margin: 12px 0; font-size: 11px; }
+  .legal-note { font-size: 11px; color: #555; font-style: italic; margin: 8px 0; }
+
+  /* Annexures */
+  .annexure { margin-top: 48px; padding-top: 36px; border-top: 2px solid #1a1a1a; }
+  .annexure-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .annexure-sub { font-size: 11px; color: #666; margin-bottom: 20px; }
+
+  .stress-test-item { margin-bottom: 20px; padding: 14px 16px; border: 1px solid #e0e0e0; border-radius: 4px; }
+  .stress-test-item h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 6px; color: #333; }
+  .outcome { display: inline-block; background: #dcfce7; color: #166534; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; border: 1px solid #86efac; margin-top: 4px; }
+
+  table.checklist { width: 100%; border-collapse: collapse; font-size: 11px; margin: 12px 0; }
+  table.checklist th { background: #1a1a1a; color: #fff; padding: 7px 10px; text-align: left; font-size: 10px; font-weight: 600; letter-spacing: .5px; }
+  table.checklist td { padding: 7px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  table.checklist td:first-child { font-weight: 600; width: 35%; }
+  .tick { color: #166534; font-weight: 700; }
+  .pending { color: #d97706; }
+
+  /* Signature */
+  .sig-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid #1a1a1a; }
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 24px; }
+  .sig-block { padding-top: 40px; border-top: 1px solid #1a1a1a; }
+  .sig-label { font-size: 10px; text-transform: uppercase; letter-spacing: .8px; color: #666; margin-bottom: 4px; }
+  .sig-name { font-size: 12px; font-weight: 600; }
+  .sig-capacity { font-size: 10px; color: #666; margin-top: 2px; }
+  .sig-date { font-size: 11px; margin-top: 14px; color: #444; }
+  .sig-place { font-size: 11px; margin-top: 4px; color: #444; }
+
+  .loan-terms { width: 100%; border-collapse: collapse; font-size: 11px; margin: 10px 0; }
+  .loan-terms td { padding: 8px 10px; border: 1px solid #ddd; vertical-align: top; }
+  .loan-terms td:first-child { font-weight: 700; width: 35%; background: #f8f8f8; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 36px 48px; max-width: 100%; }
+    h2.clause-heading { page-break-after: avoid; }
+    .stress-test-item { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══════════════════════════════════════════════════════════════ COVER -->
+
+<div class="cover">
+  <div class="trust-name">The Bonthuys Family Trust</div>
+  <div class="deed-title">Inter Vivos Irrevocable Discretionary Trust Deed</div>
+  <div class="descriptor">
+    Asset Protection &nbsp;·&nbsp; Investment Property &nbsp;·&nbsp; Business Succession &nbsp;·&nbsp; Insurance &amp; Estate Planning
+  </div>
+
+  <table class="cover-table">
+    <tr><td>Founder</td><td>Maria Jacoba Bonthuys</td></tr>
+    <tr><td>Initial Trustees</td><td>Maria Jacoba Bonthuys &nbsp;|&nbsp; Marius Bonthuys &nbsp;|&nbsp; Tanja Van Holdt (Independent)</td></tr>
+    <tr><td>Primary Beneficiaries</td><td>Dajahn Nume Bonthuys &nbsp;|&nbsp; Shone Riani Bonthuys</td></tr>
+    <tr><td>Governing Law</td><td>Republic of South Africa — Trust Property Control Act 57 of 1988</td></tr>
+    <tr><td>Registration</td><td>Master of the High Court</td></tr>
+    <tr><td>IT Reference</td><td>IT ______ / ______ &nbsp;&nbsp;&nbsp;<em style="color:#999;font-size:10px;">(assigned post-registration)</em></td></tr>
+    <tr><td>Date Executed</td><td>______ day of ________________________ 20____</td></tr>
+    <tr><td>Place of Execution</td><td>___________________________________________</td></tr>
+  </table>
+
+  <div class="version">Revised June 2026 — for submission to the Master of the High Court</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ TABLE OF CONTENTS -->
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li>Trust Name</li>
+    <li>Definitions and Interpretation</li>
+    <li>Establishment of the Trust</li>
+    <li>Purpose of the Trust</li>
+    <li>Non-Domination and Sham Trust Safeguards</li>
+    <li>Beneficiaries</li>
+    <li>Trustees</li>
+    <li>Powers of Trustees</li>
+    <li>Investments and Property Acquisition</li>
+    <li>Insurance Proceeds</li>
+    <li>Funding, Donations and Loans</li>
+    <li>Income Distribution and Tax Efficiency</li>
+    <li>Taxation</li>
+    <li>Accounting and Records</li>
+    <li>Minor Beneficiaries</li>
+    <li>Resignation, Death and Continuity</li>
+    <li>Amendment</li>
+    <li>Termination</li>
+    <li>Governing Law</li>
+    <li>Signatures</li>
+  </ol>
+  <p style="margin-top:10px;font-size:10px;color:#888;">Annexures: A — Stress-Test Analysis &nbsp;|&nbsp; B — Will Alignment &nbsp;|&nbsp; C — S7C Loan Template &nbsp;|&nbsp; D — Registration Checklist &nbsp;|&nbsp; E — Full Loan Agreement &nbsp;|&nbsp; F — Trustee Resolutions &nbsp;|&nbsp; G — Sample Will Clauses &nbsp;|&nbsp; H — Asset Transfer Walkthrough</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 1 -->
+
+<h2 class="clause-heading first">1. Trust Name</h2>
+<p>The name of the trust is: <strong>THE BONTHUYS FAMILY TRUST</strong> ("the Trust").</p>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 2 -->
+
+<h2 class="clause-heading">2. Definitions and Interpretation</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">2.1</span> In this Deed, unless inconsistent with the context:</p>
+
+  <div class="sub-sub">
+    <p><span class="sub-sub-num">"Act"</span> means the Trust Property Control Act 57 of 1988, as amended.</p>
+    <p><span class="sub-sub-num">"Beneficiaries"</span> means the Primary and Secondary Beneficiaries described in clause 6.</p>
+    <p><span class="sub-sub-num">"Capital"</span> means all assets of the Trust, whether movable or immovable, corporeal or incorporeal, including accumulated income retained as capital.</p>
+    <p><span class="sub-sub-num">"Connected Person"</span> has the meaning assigned in section 1 of the Income Tax Act 58 of 1962.</p>
+    <p><span class="sub-sub-num">"Founder"</span> means Maria Jacoba Bonthuys (Identity Number: __________________________________).</p>
+    <p><span class="sub-sub-num">"Income Tax Act"</span> means the Income Tax Act 58 of 1962, as amended.</p>
+    <p><span class="sub-sub-num">"Independent Trustee"</span> means a Trustee who is not related to the Founder or any Beneficiary by blood or marriage, and who has no direct or indirect financial interest in the Trust other than trustee remuneration.</p>
+    <p><span class="sub-sub-num">"Investment Property"</span> means immovable residential or commercial property acquired by the Trust for the purpose of earning rental income and long-term capital growth, and which is not trading stock.</p>
+    <p><span class="sub-sub-num">"Letters of Authority"</span> means written authority issued by the Master of the High Court in terms of section 6 of the Act.</p>
+    <p><span class="sub-sub-num">"Master"</span> means the Master of the High Court with jurisdiction over the district in which the Trust is registered.</p>
+    <p><span class="sub-sub-num">"Official Rate"</span> means the official interest rate determined under section 7C of the Income Tax Act from time to time.</p>
+    <p><span class="sub-sub-num">"SA Tax Year"</span> means the period from 1 March to the last day of February of the following year, as defined under the Income Tax Act.</p>
+    <p><span class="sub-sub-num">"Trustees"</span> means the trustees appointed from time to time, acting jointly as required by this Deed.</p>
+    <p><span class="sub-sub-num">"Trust Property"</span> means all property, income, rights, proceeds, investments, and assets of the Trust.</p>
+  </div>
+
+  <p style="margin-top:10px;"><span class="sub-num">2.2</span> Headings are for convenience only and do not affect interpretation. Words in the singular include the plural and vice versa. A reference to a statute includes all amendments thereto.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 3 -->
+
+<h2 class="clause-heading">3. Establishment of the Trust</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">3.1</span> The Founder hereby establishes an <strong>inter vivos irrevocable discretionary trust</strong> in terms of this Deed.</p>
+  <p><span class="sub-num">3.2</span> The Trust shall come into legal existence upon the issue of Letters of Authority by the Master.</p>
+  <p><span class="sub-num">3.3</span> The Trust is <strong>irrevocable</strong> save to the extent expressly permitted by this Deed and applicable law.</p>
+  <p><span class="sub-num">3.4</span> The Founder hereby irrevocably donates the sum of <strong>R100 (one hundred rand)</strong> to the Trust as initial Trust Property, receipt of which is hereby acknowledged.</p>
+  <p><span class="sub-num">3.5</span> No asset of the Trust shall form part of the personal estate of any Trustee or of the Founder, whether by operation of law or otherwise.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 4 -->
+
+<h2 class="clause-heading">4. Purpose of the Trust</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">4.1</span> The Trust is established for the following primary purposes:</p>
+  <div class="sub-sub">
+    <p>(a) To acquire, hold, manage, let, mortgage, improve, develop, and dispose of immovable Investment Property for the long-term benefit of Beneficiaries;</p>
+    <p>(b) To hold shares in and receive dividends from connected operating companies, including but not limited to <em>tenbucks-mobile (Pty) Ltd</em> and any successor or related entity;</p>
+    <p>(c) To invest in movable and incorporeal assets, including listed and unlisted securities, locally and offshore;</p>
+    <p>(d) To receive, hold, and administer insurance proceeds in terms of policies ceded to or owned by the Trust;</p>
+    <p>(e) To preserve and grow wealth for the benefit of Beneficiaries across generations;</p>
+    <p>(f) To provide structured succession planning ensuring the seamless transfer of family wealth without the delays, costs, and public exposure of estate administration;</p>
+    <p>(g) To protect Trust Property from the personal creditors of individual Trustees and Beneficiaries.</p>
+  </div>
+  <p><span class="sub-num">4.2</span> The Trust shall at all times be administered in compliance with South African law, including the Act, the Income Tax Act, and the Financial Intelligence Centre Act. The Trust shall not be used to evade creditors or taxation.</p>
+  <p><span class="sub-num">4.3</span> The Founder shall have no powers of control, direction, or instruction over the Trustees or the administration of Trust Property once Letters of Authority are issued.</p>
+  <p><span class="sub-num">4.4</span> The Trust acts as a <strong>permanent holding structure</strong> for capital assets and as a <strong>conduit for income</strong> distributed to Beneficiaries. The Trust is not intended to accumulate income — Trustees are directed to distribute income efficiently in accordance with clause 12.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 5 -->
+
+<h2 class="clause-heading">5. Non-Domination and Sham Trust Safeguards</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">5.1</span> All Trustees shall exercise their powers independently, jointly, and in good faith for the benefit of Beneficiaries.</p>
+  <p><span class="sub-num">5.2</span> No Trustee, including the Founder, may dominate, direct, or unduly influence the decision-making of the other Trustees. Any instruction or request by the Founder or a Beneficiary to Trustees shall be treated as non-binding.</p>
+  <p><span class="sub-num">5.3</span> Trust Property shall at all times be administered separately from the personal estates of the Trustees, the Founder, and the Beneficiaries. Separate bank accounts, accounting records, and financial statements shall be maintained in the name of the Trust.</p>
+  <p><span class="sub-num">5.4</span> No Trustee shall treat Trust Property as personal property or use Trust Property for personal purposes except as a duly resolved Trustee distribution or remuneration.</p>
+  <p><span class="sub-num">5.5</span> All significant Trust decisions shall be evidenced by written Trustee resolutions, signed by the requisite quorum, and filed in the Trust's minute book.</p>
+  <p><span class="sub-num">5.6</span> The Independent Trustee shall maintain genuine independence. Any arrangement which would compromise the Independent Trustee's independence shall be disclosed to the Master and the affected Trustee shall recuse themselves from the relevant decision.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 6 -->
+
+<h2 class="clause-heading">6. Beneficiaries</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">6.1</span> <strong>Primary Beneficiaries</strong></p>
+  <div class="sub-sub">
+    <p>(a) <strong>Shone Riani Bonthuys</strong> (date of birth: __________________________, Identity Number: __________________________)</p>
+    <p>(b) <strong>Dajahn Nume Bonthuys</strong> (date of birth: __________________________, Identity Number: __________________________)</p>
+  </div>
+
+  <p style="margin-top:12px;"><span class="sub-num">6.2</span> <strong>Secondary and Contingent Beneficiaries</strong></p>
+  <p>In the event that no Primary Beneficiary is alive at the time of any distribution, the following persons shall be entitled to benefit, in the order set out below, as the Trustees in their absolute discretion determine:</p>
+  <div class="sub-sub">
+    <p><strong>6.2.1</strong>&nbsp; The lawful lineal descendants of the Primary Beneficiaries, per stirpes, alive at the time of distribution;</p>
+    <p><strong>6.2.2</strong>&nbsp; Failing any person qualifying under 6.2.1 — all other lawful lineal descendants of the Founder (Maria Jacoba Bonthuys), per stirpes, alive at the time of distribution, without limitation of generation;</p>
+    <p><strong>6.2.3</strong>&nbsp; Failing any person qualifying under 6.2.2 — the living siblings of <strong>Marius Bonthuys</strong> and their lawful lineal descendants, per stirpes, alive at the time of distribution;</p>
+    <p><strong>6.2.4</strong>&nbsp; Failing any person qualifying under 6.2.3 — the living siblings of the Founder and their lawful lineal descendants, per stirpes, alive at the time of distribution;</p>
+    <p><strong>6.2.5</strong>&nbsp; Failing any person qualifying under 6.2.4 — any other living blood relative of the Founder within the fourth degree of consanguinity, alive at the time of distribution, as the Trustees shall in their absolute discretion identify and select.</p>
+  </div>
+  <p class="legal-note" style="margin-top:10px;">Degrees of consanguinity are calculated in terms of the Intestate Succession Act 81 of 1987. "Per stirpes" means that the share of a deceased person passes to their descendants in equal shares.</p>
+
+  <p style="margin-top:12px;"><span class="sub-num">6.3</span> No Beneficiary shall have any vested right to income or capital of the Trust unless and until a Trustee resolution formally distributing a specified amount to that Beneficiary has been passed and the Beneficiary has been notified in writing.</p>
+  <p><span class="sub-num">6.4</span> No Beneficiary may cede, assign, pledge, or encumber any interest, actual or contingent, in the Trust or Trust Property. Any purported cession, assignment, or encumbrance shall be void.</p>
+  <p><span class="sub-num">6.5</span> A Beneficiary who is a Trustee may participate in resolutions relating to distributions to other Beneficiaries but shall recuse themselves from any resolution relating to a distribution to themselves.</p>
+  <p><span class="sub-num">6.6</span> The Trustees may add further Beneficiaries by unanimous resolution, subject to the Independent Trustee's consent and, where required, Master approval. No person may be added as a Beneficiary if doing so would constitute a sham or result in tax avoidance contrary to law.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 7 -->
+
+<h2 class="clause-heading">7. Trustees</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">7.1</span> <strong>Initial Trustees</strong></p>
+  <div class="sub-sub">
+    <p>(a) <strong>Maria Jacoba Bonthuys</strong> — Founder &amp; Trustee (Identity Number: __________________________)</p>
+    <p>(b) <strong>Marius Bonthuys</strong> — Trustee (Identity Number: __________________________)</p>
+    <p>(c) <strong>Tanja Van Holdt</strong> — Independent Trustee (Attorney) (Identity Number: __________________________ &nbsp;/&nbsp; Firm: __________________________)</p>
+  </div>
+  <p class="legal-note">All initial Trustees shall sign Acceptance of Trusteeship (JM21) forms and submit certified copies of their identity documents to the Master with this Deed.</p>
+
+  <p style="margin-top:12px;"><span class="sub-num">7.2</span> <strong>Minimum Number and Independence Requirements</strong></p>
+  <div class="sub-sub">
+    <p>(a) The Trust shall at all times have a minimum of <strong>two Trustees</strong>.</p>
+    <p>(b) At least <strong>one Trustee must at all times be an Independent Trustee</strong>.</p>
+    <p>(c) If at any time there is no Independent Trustee, the remaining Trustees shall suspend all decisions requiring Independent Trustee consent (clause 8.2) until a new Independent Trustee is appointed.</p>
+  </div>
+
+  <p style="margin-top:12px;"><span class="sub-num">7.3</span> <strong>Quorum</strong></p>
+  <div class="sub-sub">
+    <p>(a) A quorum shall consist of any <strong>two Trustees</strong>, one of whom must be the Independent Trustee.</p>
+    <p>(b) Decisions at meetings where a quorum is present shall be by majority vote, save for matters listed in clause 8.2 which require Independent Trustee consent.</p>
+    <p>(c) Trustees may act by written resolution without a formal meeting, provided all Trustees sign or provide written concurrence.</p>
+  </div>
+
+  <p style="margin-top:12px;"><span class="sub-num">7.4</span> <strong>Disqualification</strong></p>
+  <p>No person may act as Trustee if they are: sequestrated and unrehabilitaged; of unsound mind; a minor; removed by a court; or otherwise disqualified under the Act.</p>
+
+  <p style="margin-top:12px;"><span class="sub-num">7.5</span> <strong>Remuneration</strong></p>
+  <p>The Independent Trustee shall be entitled to reasonable remuneration as agreed by the Trustees from time to time and charged to the Trust. Family Trustees shall serve without remuneration unless the Trustees unanimously resolve otherwise.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 8 -->
+
+<h2 class="clause-heading">8. Powers of Trustees</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">8.1</span> The Trustees shall have all powers necessary or expedient to achieve the Trust's purposes, including:</p>
+  <div class="sub-sub">
+    <p>(a) To acquire, let, improve, encumber, and dispose of movable and immovable property;</p>
+    <p>(b) To hold shares in and exercise all rights attached to shares in any company, including <em>tenbucks-mobile (Pty) Ltd</em>;</p>
+    <p>(c) To borrow money on such terms as they deem fit, and to mortgage, pledge, or encumber Trust Property as security;</p>
+    <p>(d) To open and operate bank accounts in the name of the Trust;</p>
+    <p>(e) To invest in any lawful investment, whether local or foreign;</p>
+    <p>(f) To enter into agreements, contracts, and leases;</p>
+    <p>(g) To institute or defend legal proceedings;</p>
+    <p>(h) To appoint agents, attorneys, accountants, property managers, and other advisors;</p>
+    <p>(i) To receive management fees, rental income, dividends, interest, and other income on behalf of the Trust;</p>
+    <p>(j) To make distributions to Beneficiaries of income and/or capital by resolution.</p>
+  </div>
+
+  <p style="margin-top:12px;"><span class="sub-num">8.2</span> <strong>Decisions Requiring Independent Trustee Consent</strong></p>
+  <p>The following decisions require the specific written consent of the Independent Trustee and shall not be valid without it:</p>
+  <div class="sub-sub">
+    <p>(a) Acquisition or disposal of immovable property or any asset with a value exceeding R500,000;</p>
+    <p>(b) Loans to or from Connected Persons (including any person related to a Trustee or Beneficiary);</p>
+    <p>(c) Capital distributions to any Beneficiary exceeding R500,000 in any SA Tax Year;</p>
+    <p>(d) Use of Trust assets as security for any obligation of a Trustee or Beneficiary personally;</p>
+    <p>(e) Amendment of this Trust Deed;</p>
+    <p>(f) Addition of new Beneficiaries;</p>
+    <p>(g) Termination of the Trust;</p>
+    <p>(h) Any transaction between the Trust and a Trustee or Connected Person on non-arm's-length terms.</p>
+  </div>
+
+  <p style="margin-top:12px;"><span class="sub-num">8.3</span> Trustees shall exercise the care, diligence, and skill reasonably expected of a person managing the affairs of another, as required by section 9 of the Act.</p>
+  <p><span class="sub-num">8.4</span> Trustees shall keep minutes of all meetings and retain all resolutions in a minute book which shall be maintained at the Trust's registered address or such other address as notified to the Master.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 9 -->
+
+<h2 class="clause-heading">9. Investments and Property Acquisition</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">9.1</span> Trustees may invest Trust Property in any lawful investment, including listed shares, bonds, unit trusts, local and foreign currencies, and offshore investments.</p>
+
+  <p><span class="sub-num">9.2</span> <strong>Residential Investment Property</strong></p>
+  <p>The Trust may acquire residential Investment Property directly in the name of the Trust for the purpose of earning rental income and long-term capital appreciation. The following principles apply:</p>
+  <div class="sub-sub">
+    <p>(a) Investment Property shall be recorded as a capital asset of the Trust and shall not be classified as trading stock;</p>
+    <p>(b) Rental income received in respect of Investment Property shall be distributed to Beneficiaries in terms of clause 12;</p>
+    <p>(c) The Trust may incur mortgage bond obligations to finance Investment Property acquisitions. Trustees may arrange personal suretyships from Trustees in their personal capacities to facilitate bond approvals;</p>
+    <p>(d) All proceeds on disposal of Investment Property shall be distributed or retained as capital in the Trust at the discretion of the Trustees;</p>
+    <p>(e) Investment Property shall at all times be held separately from any property held as trading stock in any connected operating entity.</p>
+  </div>
+
+  <p style="margin-top:12px;"><span class="sub-num">9.3</span> <strong>Cryptocurrency</strong></p>
+  <p>Cryptocurrency investments are permitted subject to the following conditions:</p>
+  <div class="sub-sub">
+    <p>(a) Prior written consent of the Independent Trustee;</p>
+    <p>(b) A maximum allocation of 10% of the total market value of Trust assets at the time of investment;</p>
+    <p>(c) A documented risk acknowledgement resolution signed by all Trustees.</p>
+  </div>
+
+  <p><span class="sub-num">9.4</span> Trustees may hold shares in any company through which the Trust conducts business or investment activities, provided such holdings are consistent with the purposes of the Trust.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 10 -->
+
+<h2 class="clause-heading">10. Insurance Proceeds</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">10.1</span> The Trust may be nominated as the beneficiary of, or may own, insurance policies on the lives of Trustees, Beneficiaries, or other persons connected to the Trust.</p>
+  <p><span class="sub-num">10.2</span> Where the Trust is to own a policy (rather than merely be nominated as a beneficiary), the Trust shall pay premiums from Trust funds. The distinction between Trust ownership and mere nomination determines whether proceeds fall inside or outside the insured's estate for estate duty purposes under section 3(3)(a) of the Estate Duty Act 45 of 1955.</p>
+  <p><span class="sub-num">10.3</span> Insurance proceeds received by the Trust shall be administered as Trust Property and distributed or retained in accordance with a Trustee resolution.</p>
+  <p><span class="sub-num">10.4</span> Trustees shall obtain professional tax advice prior to distributing insurance proceeds and shall have regard to applicable income tax, estate duty, and donations tax implications.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 11 -->
+
+<h2 class="clause-heading">11. Funding, Donations and Loans</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">11.1</span> The Trust may be funded by donations, capital contributions, loans, income retained as capital, insurance proceeds, or any other lawful means.</p>
+  <p><span class="sub-num">11.2</span> <strong>Donations</strong></p>
+  <p>Any person may donate funds or assets to the Trust. Each donor should have regard to the R100,000 annual donations tax exemption per donor under section 54 of the Income Tax Act. Donations within the annual exemption are free of donations tax.</p>
+  <p><span class="sub-num">11.3</span> <strong>Loans from Connected Persons</strong></p>
+  <p>Any loan advanced to the Trust by a natural person, or by a company where that person is a Connected Person in relation to the Trust, shall bear interest at not less than the Official Rate as contemplated in section 7C of the Income Tax Act. Failure to charge the Official Rate will result in the interest shortfall being treated as a deemed donation, subject to donations tax on amounts exceeding the annual exemption.</p>
+  <p><span class="sub-num">11.4</span> All loans to and from the Trust shall be reduced to writing, signed by the parties, and retained in the Trust's records. The Independent Trustee must consent to any loan exceeding R100,000 in terms of clause 8.2.</p>
+  <p><span class="sub-num">11.5</span> All Trust transactions, including donations, loans, and distributions, shall be properly recorded in the Trust's accounting records.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 12 -->
+
+<h2 class="clause-heading">12. Income Distribution and Tax Efficiency</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">12.1</span> The Trust is a <strong>discretionary trust</strong>. No Beneficiary has a fixed entitlement to any income or capital. All distributions are subject to a Trustee resolution passed in accordance with this Deed.</p>
+
+  <p><span class="sub-num">12.2</span> <strong>Annual Distribution Objective</strong></p>
+  <p>The Trustees are directed to give serious consideration, at or before the end of each SA Tax Year (28 February), to distributing accumulated income of the Trust to Beneficiaries. Undistributed income of the Trust is taxed at 45% in the Trust's hands under the Income Tax Act. Distribution of income to Beneficiaries allows taxation at the individual Beneficiary's marginal rate, which may be substantially lower.</p>
+
+  <p><span class="sub-num">12.3</span> <strong>Income Character</strong></p>
+  <p>In terms of section 25B of the Income Tax Act, income distributed to Beneficiaries retains the character it had in the Trust (rental income, dividend income, interest income, capital gain, etc.). Trustees shall record the character of each distribution in the relevant resolution.</p>
+
+  <p><span class="sub-num">12.4</span> <strong>Minor Beneficiaries</strong></p>
+  <p>Where a Beneficiary is a minor and their parent has funded the Trust by way of loan or donation, section 7(3) of the Income Tax Act may attribute income distributed to the minor back to the parent for tax purposes. Trustees shall take specialist tax advice on distributions to minor Beneficiaries and shall preference distributions to adult Beneficiaries where this results in a lower overall tax burden.</p>
+
+  <p><span class="sub-num">12.5</span> <strong>Capital Distributions</strong></p>
+  <p>Capital distributions (including capital gains realised on disposal of Trust assets) shall be made by Trustee resolution. Capital gain distributions to individual Beneficiaries are subject to capital gains tax at a 40% inclusion rate at the Beneficiary's marginal rate, which is more favourable than the 80% inclusion rate applicable to the Trust or any company holding those assets.</p>
+
+  <p><span class="sub-num">12.6</span> <strong>Management Fee Income</strong></p>
+  <p>Where the Trust receives income in the form of management or administrative fees from connected operating companies, such income shall be treated as ordinary income of the Trust and distributed to Beneficiaries in accordance with this clause. The Trust shall maintain proper invoices and service agreements to support such fee arrangements at arm's length.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 13 -->
+
+<h2 class="clause-heading">13. Taxation</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">13.1</span> The Trustees shall ensure compliance with all applicable tax obligations of the Trust, including registration with the South African Revenue Service (SARS) as a taxpayer (IT12T), submission of annual income tax returns, and payment of any tax due.</p>
+  <p><span class="sub-num">13.2</span> The Trustees may distribute income or capital in a tax-efficient manner where this is lawful and consistent with the purposes of the Trust and the Act.</p>
+  <p><span class="sub-num">13.3</span> Trustees shall obtain professional tax advice in respect of: section 7C deemed donations; section 7(3) attribution of minor beneficiary income; section 25B income character passthrough; and capital gains tax on disposals of Trust assets.</p>
+  <p><span class="sub-num">13.4</span> The Trust shall be registered with the South African Revenue Service within 30 days of receiving Letters of Authority from the Master.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 14 -->
+
+<h2 class="clause-heading">14. Accounting and Records</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">14.1</span> Proper accounting records shall be maintained in respect of all Trust Property, income, expenditure, loans, and distributions. Records shall be maintained separately from the personal accounts of any Trustee.</p>
+  <p><span class="sub-num">14.2</span> Annual financial statements shall be prepared in accordance with generally accepted accounting principles (IFRS for SMEs or equivalent) within 6 months of the end of each SA Tax Year.</p>
+  <p><span class="sub-num">14.3</span> An independent review shall be conducted where required by the Master, required by law, or where the Trustees deem it prudent.</p>
+  <p><span class="sub-num">14.4</span> The Beneficial Ownership Register of the Trust shall be maintained and updated with the Companies and Intellectual Property Commission (CIPC) as required by the General Laws (Anti-Money Laundering and Combating Terrorism Financing) Amendment Act 22 of 2022 and the Financial Intelligence Centre Act 38 of 2001.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 15 -->
+
+<h2 class="clause-heading">15. Minor Beneficiaries</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">15.1</span> Where a Beneficiary is a minor, the Trustees may apply income or capital of the Trust for the maintenance, education, healthcare, and general welfare of that Beneficiary.</p>
+  <p><span class="sub-num">15.2</span> Amounts set aside for a minor Beneficiary may be retained in the Trust until the Trustees determine it appropriate to distribute, which may be beyond the date the Beneficiary reaches majority, at the Trustees' absolute discretion.</p>
+  <p><span class="sub-num">15.3</span> Trustees shall have regard to section 7(3) of the Income Tax Act when considering distributions to minor Beneficiaries and shall document their tax analysis in the relevant resolution.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 16 -->
+
+<h2 class="clause-heading">16. Resignation, Death and Continuity</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">16.1</span> A Trustee shall vacate office upon: death; permanent incapacity; sequestration; disqualification by the Master; written resignation with 30 days' notice to the remaining Trustees; or removal by court order.</p>
+  <p><span class="sub-num">16.2</span> The remaining Trustees shall appoint a replacement Trustee within <strong>60 days</strong> of a vacancy arising. If the vacancy leaves the Trust without an Independent Trustee, no decisions in terms of clause 8.2 may be taken until the vacancy is filled.</p>
+  <p><span class="sub-num">16.3</span> The Trust shall not terminate upon the death, resignation, or incapacity of any Trustee. Trust Property shall vest in the remaining Trustees pending appointment of a replacement.</p>
+  <p><span class="sub-num">16.4</span> Any Trustee appointed in terms of this clause shall sign an Acceptance of Trusteeship and the appointment shall be registered with the Master.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 17 -->
+
+<h2 class="clause-heading">17. Amendment</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">17.1</span> This Deed may be amended only by <strong>unanimous written resolution of all Trustees</strong>, including the Independent Trustee.</p>
+  <p><span class="sub-num">17.2</span> Amendments shall be submitted to the Master for approval where required under the Act.</p>
+  <p><span class="sub-num">17.3</span> No amendment may alter the irrevocable nature of the Trust or remove the requirement for an Independent Trustee.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 18 -->
+
+<h2 class="clause-heading">18. Termination</h2>
+
+<div class="sub-clause">
+  <p><span class="sub-num">18.1</span> The Trust may terminate only upon:</p>
+  <div class="sub-sub">
+    <p>(a) The fulfilment of its stated purposes and the exhaustion of all Trust Property;</p>
+    <p>(b) A unanimous Trustee resolution to terminate, subject to Master approval; or</p>
+    <p>(c) A court order.</p>
+  </div>
+  <p><span class="sub-num">18.2</span> Upon termination, the Trustees shall distribute the remaining Trust Property among the then-living Beneficiaries, having regard to:</p>
+  <div class="sub-sub">
+    <p>(a) The financial dependency of each Beneficiary;</p>
+    <p>(b) Equality among Beneficiaries of the same class;</p>
+    <p>(c) Benefits previously received by each Beneficiary;</p>
+    <p>(d) The long-term financial welfare and age of each Beneficiary.</p>
+  </div>
+  <p><span class="sub-num">18.3</span> All tax obligations of the Trust shall be settled before final distribution of Trust Property.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ CLAUSE 19 -->
+
+<h2 class="clause-heading">19. Governing Law</h2>
+<p>This Trust Deed shall be governed, construed, and interpreted in accordance with the laws of the Republic of South Africa. Any dispute arising from this Deed shall be subject to the jurisdiction of the High Court of South Africa.</p>
+
+<!-- ═══════════════════════════════════════════════════════════════ SIGNATURES -->
+
+<div class="sig-section">
+  <h2 class="clause-heading" style="border-top:none;padding-top:0;margin-top:0;">20. Signatures</h2>
+  <p>Signed at <span style="display:inline-block;min-width:200px;border-bottom:1px solid #000;">&nbsp;</span> on this <span style="display:inline-block;min-width:40px;border-bottom:1px solid #000;">&nbsp;</span> day of <span style="display:inline-block;min-width:120px;border-bottom:1px solid #000;">&nbsp;</span> 20<span style="display:inline-block;min-width:30px;border-bottom:1px solid #000;">&nbsp;</span>.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-label">Signed by the Founder</div>
+      <div style="height:50px;border-bottom:1px solid #000;margin-bottom:6px;"></div>
+      <div class="sig-name">Maria Jacoba Bonthuys</div>
+      <div class="sig-capacity">Founder — in her personal capacity</div>
+      <div class="sig-date">Date: ___________________________</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Witness 1</div>
+      <div style="height:50px;border-bottom:1px solid #000;margin-bottom:6px;"></div>
+      <div style="font-size:11px;">Full name: ___________________________</div>
+      <div style="font-size:11px;margin-top:4px;">Identity No.: ___________________________</div>
+    </div>
+    <div class="sig-block" style="margin-top:32px;">
+      <div class="sig-label">Witness 2</div>
+      <div style="height:50px;border-bottom:1px solid #000;margin-bottom:6px;"></div>
+      <div style="font-size:11px;">Full name: ___________________________</div>
+      <div style="font-size:11px;margin-top:4px;">Identity No.: ___________________________</div>
+    </div>
+    <div class="sig-block" style="margin-top:32px;">
+      <div class="sig-label">Notarial Attestation (if required by Master)</div>
+      <div style="font-size:11px;color:#888;font-style:italic;padding-top:12px;">To be completed by Notary Public where required.</div>
+    </div>
+  </div>
+
+  <div class="important" style="margin-top:32px;">
+    <strong>Note to Trustees:</strong> Trustee Acceptance of Trusteeship (JM21 forms) are separate documents and must be signed individually by each Trustee. They are not part of this Deed but must be submitted to the Master together with this Deed.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE A -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure A — Stress-Test Analysis</div>
+  <div class="annexure-sub">Litigation, SARS, Divorce &amp; Insolvency Protections Built into this Deed</div>
+
+  <div class="stress-test-item">
+    <h4>A1. Sham Trust &amp; Control Attack (Parker / Badenhorst line of cases)</h4>
+    <p><strong>Risk:</strong> Court or SARS alleges the Trust is the alter ego of the Founder or a Trustee.</p>
+    <p><strong>Protections:</strong> Irrevocable structure; Independent Trustee mandatory and has veto on high-risk decisions; express non-domination clause (clause 5); Trustee decision minutes required; Founder excluded from control post-Letters of Authority; Trust assets separately banked and accounted.</p>
+    <p><strong>Practical requirement:</strong> Maria Bonthuys (as Founder-Trustee) must not unilaterally direct Trust decisions. The Independent Trustee must genuinely sign all clause 8.2 decisions. If Maria's practical conduct mirrors sole control, the sham trust risk increases regardless of the deed.</p>
+    <div><span class="outcome">High resistance — subject to conduct consistency</span></div>
+  </div>
+
+  <div class="stress-test-item">
+    <h4>A2. Divorce Attack</h4>
+    <p><strong>Risk:</strong> A Trustee's or Beneficiary's spouse attempts to include Trust assets in a matrimonial property claim.</p>
+    <p><strong>Protections:</strong> No vested beneficiary rights (clause 6.3); Trustee discretion clearly framed; Founder excluded from post-registration control; Trust assets segregated; Independent Trustee governance; no asset encumbrance by Beneficiaries (clause 6.4).</p>
+    <div><span class="outcome">Strong defence against accrual or redistribution claims</span></div>
+  </div>
+
+  <div class="stress-test-item">
+    <h4>A3. Insolvency &amp; Creditor Attack</h4>
+    <p><strong>Risk:</strong> Personal creditors of a Trustee or Beneficiary attempt to attach Trust assets.</p>
+    <p><strong>Protections:</strong> Anti-alienation (clause 6.4); no Beneficiary vesting (clause 6.3); discretionary distributions; Trust not used to evade creditors (clause 4.2). Assets transferred to the Trust more than 6 months before insolvency are generally protected.</p>
+    <p><strong>Note:</strong> Transfers to the Trust within 6 months before a sequestration application may be challenged under the Insolvency Act.</p>
+    <div><span class="outcome">High protection — subject to timing and conduct</span></div>
+  </div>
+
+  <div class="stress-test-item">
+    <h4>A4. SARS — Section 7C (Interest-Free Loans)</h4>
+    <p><strong>Risk:</strong> SARS levies donations tax on interest shortfall on loans to the Trust or connected entities.</p>
+    <p><strong>Protections:</strong> Clause 11.3 mandates Official Rate interest on all Connected Person loans; written loan agreements required; Independent Trustee oversight; explicit tax compliance obligations. Annual R100,000 donations tax exemption applies per donor.</p>
+    <p><strong>Operational note:</strong> Donors who prefer to use the R100,000 annual exemption as outright donations (rather than loans) avoid section 7C entirely on those amounts. Loans above the annual exemption must bear Official Rate interest or the shortfall becomes a deemed donation attracting 20% donations tax.</p>
+    <div><span class="outcome">SARS-compliant if correctly implemented</span></div>
+  </div>
+
+  <div class="stress-test-item">
+    <h4>A5. Section 7(3) — Minor Beneficiary Income Attribution</h4>
+    <p><strong>Risk:</strong> Income distributed to minor Beneficiaries (Shone Riani Bonthuys while under 18) attributed to the parent (Marius Bonthuys) and taxed at Marius's marginal rate.</p>
+    <p><strong>Protections:</strong> Clause 12.4 directs Trustees to take specialist advice and preference adult Beneficiary distributions. Income not sourced from Marius's contributions is lower risk for attribution. Prioritise distributions to Dajahn Nume Bonthuys (adult) until Shone reaches majority.</p>
+    <div><span class="outcome">Manageable — with careful annual distribution planning</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE B -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure B — Will &amp; Estate Planning Alignment</div>
+
+  <p><strong>B1. Core Principles</strong></p>
+  <p>The Wills of both Maria Jacoba Bonthuys (Founder) and Marius Bonthuys (Trustee) must be aligned with this Trust Deed. The Trust is a separate legal estate — Trust assets do not form part of the deceased's personal estate and must not be dealt with in any Will as if they do.</p>
+
+  <p style="margin-top:12px;"><strong>B2. Loan Accounts</strong></p>
+  <p>Any loan account owed by the Trust to a deceased Trustee or donor forms part of that person's personal estate and must be dealt with expressly in their Will. The executor may claim the loan, write it off, or bequeath it to the Trust. Failure to address this can result in the loan amount being included in the deceased estate for estate duty purposes.</p>
+
+  <p style="margin-top:12px;"><strong>B3. Life Policies</strong></p>
+  <p>Where the Trust owns a life policy and pays the premiums, the proceeds fall outside the estate of the insured. Where the insured pays premiums personally, proceeds may fall inside the estate under section 3(3)(a) of the Estate Duty Act. Premium payer should be the Trust to the maximum extent possible.</p>
+
+  <p style="margin-top:12px;"><strong>B4. Marius Bonthuys — specific note</strong></p>
+  <p>Marius holds a life policy of R10,000,000. Action required: cede this policy to the Trust after Letters of Authority are received. The Trust must then pay premiums from Trust funds. This removes R10,000,000 from Marius's personal estate, saving up to R2,000,000 in estate duty.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE C -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure C — Section 7C Loan Agreement (Summary Template)</div>
+
+  <p><strong>C1. Essential Terms for any Connected Person Loan to the Trust</strong></p>
+  <table class="loan-terms">
+    <tr><td>Parties</td><td>Lender (natural person or connected company) and THE BONTHUYS FAMILY TRUST (IT ______/______)</td></tr>
+    <tr><td>Capital Amount</td><td>As advanced from time to time, confirmed in writing</td></tr>
+    <tr><td>Interest Rate</td><td>Not less than the Official Rate under section 7C of the Income Tax Act (currently 9.25% p.a., updated quarterly)</td></tr>
+    <tr><td>Interest Payment</td><td>Payable annually on or before 28 February each SA Tax Year</td></tr>
+    <tr><td>Repayment</td><td>On demand, subject to the Trust's liquidity at the time of demand</td></tr>
+    <tr><td>Annual Exemption</td><td>First R100,000 of deemed donations per donor per year is exempt from donations tax</td></tr>
+    <tr><td>Independent Trustee</td><td>Must consent to any loan exceeding R100,000 (clause 8.2)</td></tr>
+    <tr><td>No waiver</td><td>No waiver or reduction of interest without Independent Trustee written consent</td></tr>
+    <tr><td>Recording</td><td>All advances must be recorded in the Trust's books and confirmed in writing</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE D -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure D — Master of the High Court Registration Checklist</div>
+
+  <table class="checklist">
+    <thead><tr><th>Document / Action</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Signed Trust Deed (this document)</td><td class="pending">Pending</td><td>Signed by Founder + 2 witnesses</td></tr>
+      <tr><td>JM21 — Acceptance of Trusteeship (×3)</td><td class="pending">Pending</td><td>Maria, Marius, Tanja Van Holdt — each signs separately</td></tr>
+      <tr><td>Certified ID copy — Maria Bonthuys</td><td class="pending">Pending</td><td>Commissioner of Oaths certified</td></tr>
+      <tr><td>Certified ID copy — Marius Bonthuys</td><td class="pending">Pending</td><td>Commissioner of Oaths certified</td></tr>
+      <tr><td>Certified ID copy — Tanja Van Holdt</td><td class="pending">Pending</td><td>Commissioner of Oaths certified</td></tr>
+      <tr><td>Independent Trustee declaration</td><td class="pending">Pending</td><td>Tanja Van Holdt confirms independence</td></tr>
+      <tr><td>Beneficial Ownership Register</td><td class="pending">Pending</td><td>Required by FICA 2023. File with CIPC post-registration.</td></tr>
+      <tr><td>Proof of initial donation (R100)</td><td class="pending">Pending</td><td>Bank deposit slip or acknowledgement</td></tr>
+      <tr><td>Master's fee</td><td class="pending">Pending</td><td>Confirm current fee with Master's office</td></tr>
+      <tr><td>Security bond (if required)</td><td class="pending">Pending</td><td>Master may waive for family trusts</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:16px;"><strong>Post-Registration Actions (within 60 days of receiving Letters of Authority):</strong></p>
+  <table class="checklist">
+    <thead><tr><th>Action</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Open Trust bank account</td><td class="pending">Pending</td><td>In the name of "The Bonthuys Family Trust"</td></tr>
+      <tr><td>Register with SARS (IT12T)</td><td class="pending">Pending</td><td>Obtain Trust IT number</td></tr>
+      <tr><td>File Beneficial Ownership Register (CIPC)</td><td class="pending">Pending</td><td>Annual update required thereafter</td></tr>
+      <tr><td>Transfer tenbucks-mobile shares to Trust</td><td class="pending">Pending</td><td>Do while company equity is still low — minimal CGT</td></tr>
+      <tr><td>Cede Marius's life policy to Trust</td><td class="pending">Pending</td><td>Trust takes over premium payments. Saves R2m estate duty.</td></tr>
+      <tr><td>Set up management fee arrangement</td><td class="pending">Pending</td><td>Service agreement: tenbucks-mobile pays Trust monthly fee</td></tr>
+      <tr><td>Pass initial Trustee resolutions (Annexure F)</td><td class="pending">Pending</td><td>Bank account, SARS, accounting year-end, etc.</td></tr>
+      <tr><td>Update Beneficial Ownership annually</td><td class="pending">Ongoing</td><td>CIPC / FIC requirement</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE E -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure E — Section 7C Loan Agreement (Full Draft)</div>
+
+  <p style="margin-bottom:16px;">This agreement is entered into between:</p>
+  <p><strong>LENDER:</strong> __________________________________________ (Identity Number: __________________________________________)</p>
+  <p style="margin-top:8px;"><strong>BORROWER:</strong> THE BONTHUYS FAMILY TRUST (IT ______ / ______, registered with the Master of the High Court under Letters of Authority No. ______)</p>
+
+  <p style="margin-top:16px;font-weight:700;">1. Loan Amount</p>
+  <p>The Lender agrees to advance to the Borrower the sum of R__________________________ (or such further amounts as may be agreed in writing from time to time).</p>
+
+  <p style="margin-top:12px;font-weight:700;">2. Interest</p>
+  <p>Interest shall accrue on the outstanding balance at not less than the Official Rate as contemplated in section 7C of the Income Tax Act 58 of 1962, as updated by SARS from time to time. Interest shall be calculated daily and paid annually on or before 28 February of each SA Tax Year.</p>
+
+  <p style="margin-top:12px;font-weight:700;">3. Annual Donations Exemption</p>
+  <p>To the extent the annual interest payable is less than R100,000, the deemed donation arising under section 7C shall fall within the Lender's annual donations tax exemption and no donations tax shall be payable. To the extent the deemed donation exceeds R100,000, 20% donations tax shall apply to the excess.</p>
+
+  <p style="margin-top:12px;font-weight:700;">4. Repayment</p>
+  <p>The loan is repayable on demand by the Lender, subject to the Trust's ability to realise sufficient liquid assets to meet the demand without unreasonably prejudicing the Beneficiaries.</p>
+
+  <p style="margin-top:12px;font-weight:700;">5. No Waiver</p>
+  <p>No waiver, reduction, or forgiveness of interest or capital shall be valid unless approved in writing by the Independent Trustee. Any waiver constitutes a donation by the Lender and is subject to donations tax to the extent it exceeds the annual exemption.</p>
+
+  <p style="margin-top:12px;font-weight:700;">6. Write-Down by Annual Donation</p>
+  <p>The Lender may, in any SA Tax Year, forgive up to the amount of the annual donations tax exemption (R100,000) of outstanding principal as a tax-free donation. Any such forgiveness shall be recorded in a signed written addendum to this Agreement.</p>
+
+  <p style="margin-top:12px;font-weight:700;">7. Recording</p>
+  <p>The Trustees shall record all advances, interest accruals, payments, and waivers in the Trust's accounting records. A loan account statement shall be provided to the Lender annually.</p>
+
+  <p style="margin-top:12px;font-weight:700;">8. Governing Law</p>
+  <p>Republic of South Africa. Any dispute shall be referred to the High Court having jurisdiction.</p>
+
+  <div class="sig-grid" style="margin-top:28px;">
+    <div class="sig-block">
+      <div class="sig-label">Lender</div>
+      <div style="height:40px;border-bottom:1px solid #000;margin-bottom:6px;"></div>
+      <div style="font-size:11px;">Name: ___________________________</div>
+      <div style="font-size:11px;margin-top:4px;">Date: ___________________________</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Signed for and on behalf of The Bonthuys Family Trust</div>
+      <div style="height:40px;border-bottom:1px solid #000;margin-bottom:6px;"></div>
+      <div style="font-size:11px;">Trustee: ___________________________</div>
+      <div style="font-size:11px;margin-top:4px;">Date: ___________________________</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE F -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure F — Initial Trustee Resolutions</div>
+  <div class="annexure-sub">To be passed at the first Trustee meeting after Letters of Authority are received</div>
+
+  <ol style="padding-left:20px;font-size:12px;line-height:2;">
+    <li>Acceptance of Trusteeship by all Trustees</li>
+    <li>Resolution to open a Trust bank account in the name of "The Bonthuys Family Trust" at __________________________ Bank</li>
+    <li>Resolution to register the Trust with SARS for income tax (IT12T)</li>
+    <li>Adoption of the SA Tax Year (1 March – last day of February) as the Trust's accounting year-end</li>
+    <li>Resolution to accept initial donation of R100 from Maria Jacoba Bonthuys</li>
+    <li>Resolution to accept annual capital donations from Maria Jacoba Bonthuys and Marius Bonthuys within the annual donations tax exemption (R100,000 per donor)</li>
+    <li>Resolution to appoint __________________________ as accountants and tax practitioners to the Trust</li>
+    <li>Resolution to accept the management fee service arrangement with tenbucks-mobile (Pty) Ltd</li>
+    <li>Resolution to update the Beneficial Ownership Register with CIPC</li>
+    <li>Resolution re: Marius Bonthuys life policy cession — Trustees confirm agreement to accept cession of the R10,000,000 life policy and to pay premiums from Trust funds with effect from ______________</li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE G -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure G — Will Alignment — Specimen Clauses</div>
+  <div class="annexure-sub">To be incorporated into the Wills of Maria Jacoba Bonthuys and Marius Bonthuys</div>
+
+  <p style="font-weight:700;margin-top:8px;">Clause 1: Trust Acknowledgement</p>
+  <p style="font-style:italic;padding:10px 16px;background:#f8f8f8;border-left:3px solid #ccc;">"I record that THE BONTHUYS FAMILY TRUST (IT ______/______) is an independent legal entity registered in terms of the Trust Property Control Act 57 of 1988. No assets of the Trust form part of my estate and no executor shall include Trust assets in the administration of my estate."</p>
+
+  <p style="font-weight:700;margin-top:12px;">Clause 2: Loan Account</p>
+  <p style="font-style:italic;padding:10px 16px;background:#f8f8f8;border-left:3px solid #ccc;">"Any loan account owing to me by THE BONTHUYS FAMILY TRUST at the date of my death shall devolve to my estate. My executor is authorised, in consultation with the Trustees of the Trust, to claim, compromise, reduce, or waive such loan account as the executor in their discretion deems to be in the best interests of the Beneficiaries and my estate, having regard to donations tax, estate duty, and the liquidity of the Trust."</p>
+
+  <p style="font-weight:700;margin-top:12px;">Clause 3: Minor Beneficiary Pour-Over (Optional)</p>
+  <p style="font-style:italic;padding:10px 16px;background:#f8f8f8;border-left:3px solid #ccc;">"Any inheritance accruing under this Will to a minor beneficiary who is also a Beneficiary of THE BONTHUYS FAMILY TRUST may, at the sole discretion of my executor, be paid to the Trust to be held and administered in accordance with the Trust Deed, rather than being paid to the Guardian's Fund."</p>
+
+  <p style="font-weight:700;margin-top:12px;">Clause 4: Life Policy (Marius Bonthuys Will — post cession)</p>
+  <p style="font-style:italic;padding:10px 16px;background:#f8f8f8;border-left:3px solid #ccc;">"I record that my life insurance policy (Policy No.: ____________________, Insurer: ____________________) has been ceded to and is owned by THE BONTHUYS FAMILY TRUST. The proceeds of this policy do not form part of my estate. My executor shall not include this policy in the liquidation and distribution account of my estate."</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ ANNEXURE H -->
+
+<div class="annexure">
+  <div class="annexure-title">Annexure H — Asset Transfer Walkthrough</div>
+  <div class="annexure-sub">Planned transfers of Maria J. Bonthuys personal assets to the Trust</div>
+
+  <p style="font-weight:700;margin-top:8px;">H1. tenbucks-mobile (Pty) Ltd — Share Transfer</p>
+  <p><strong>Priority: HIGH — Transfer immediately after Letters of Authority are received.</strong></p>
+  <p>Maria holds 100% of the shares. Current company equity is approximately R25,768 (retained earnings Mar–May 2026). CGT on disposal of shares = gain × 40% inclusion × Maria's marginal rate. At this low equity value, the CGT cost is minimal. As Fizzog and app revenue grows, the share value increases — delaying the transfer increases the CGT cost on disposal.</p>
+  <p style="margin-top:6px;">Mechanism: Maria disposes of her shares to the Trust at market value. Trust pays Maria the market value via a loan (S7C-compliant, at Official Rate). This loan can be written down over time via annual donations within the R100,000 exemption.</p>
+
+  <p style="font-weight:700;margin-top:16px;">H2. EasyEquities USD Portfolio</p>
+  <p><strong>Priority: MEDIUM — Transfer within 12 months of trust registration.</strong></p>
+  <p>Current value approximately R200,000 (placeholder). CGT on disposal: gain above R200,000 cost × 40% inclusion × Maria's rate, less the R40,000 annual exclusion. Mechanism: Maria donates the portfolio to the Trust. If the value exceeds R100,000 above cost, structure the donation in two tranches across two SA Tax Years to stay within annual exemptions. Once in the Trust, capital gains on disposal distributed to adult Beneficiaries at 40% inclusion × their (lower) marginal rate.</p>
+
+  <p style="font-weight:700;margin-top:16px;">H3. Vacant Land (R345,000)</p>
+  <p><strong>Priority: LOW — No immediate urgency. Plan the transfer carefully.</strong></p>
+  <p>Land sits in Maria's personal estate at R345,000 cost base. No improvements. Options:</p>
+  <p>(a) <em>Donate in tranches</em>: donate R100,000/year of value — takes ~3–4 years. No transfer duty (donation). No CGT if donated at cost base.</p>
+  <p>(b) <em>Sell to Trust at cost</em>: Trust pays R345,000 via a loan from Maria at Official Rate. Land in Trust; loan written down via annual donations. Transfer duty applies on the purchase by the Trust.</p>
+  <p>(c) <em>Retain personally until development decision made</em>: if the land is eventually built on (residential building), the Trust can buy or Maria can contribute once the structure is settled.</p>
+  <p>Recommendation: Option (a) — phased donation over 3–4 years, no transfer duty, minimal tax cost.</p>
+</div>
+
+<!-- Footer -->
+<div style="margin-top:60px;padding-top:20px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center;">
+  THE BONTHUYS FAMILY TRUST — TRUST DEED &nbsp;|&nbsp; Revised June 2026 &nbsp;|&nbsp; For submission to the Master of the High Court &nbsp;|&nbsp; Internal use — confidential
+</div>
+
+</div>
+</body>
+</html>
