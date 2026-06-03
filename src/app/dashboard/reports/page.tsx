@@ -68,6 +68,12 @@ export default async function ReportsPage({
   const company = getEntity('tenbucks-mobile (Pty) Ltd');
   const trust   = getEntity('Bonthuys Family Trust');
 
+  // PERSONAL_SALARY / RENTAL_NET = Marius's personal income figures
+  // Used in the WhatIf salary-vs-retain comparison (Marius as the operating consultant)
+  // and in trust/page.tsx for Section 7(3) attribution on Shone's distributions.
+  // Maria J. Bonthuys is the company owner/director — update if Maria's personal income
+  // figures are needed separately for a different calculation.
+
   // ── P&L calculation per entity ──────────────────────────────
 
   function entityPL(entityId: string) {

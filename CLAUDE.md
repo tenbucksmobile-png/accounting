@@ -4,10 +4,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-**Tenbucks Accounting** — a private SA-compliant accounting web application for the Bonthuys family structure:
+**Tenbucks Accounting** — a private SA-compliant accounting web application for the Bonthuys family structure.
 
-- **Bonthuys Family Trust** (inter vivos discretionary trust, IT12T filer)
-- **tenbucks-mobile (Pty) Ltd** (operating company, owns Fizzog, IT14/IRP6 filer)
+### The People
+- **Maria J. Bonthuys** — founder of the trust, director and 100% owner of tenbucks-mobile (Pty) Ltd, personal owner of the vacant land and EasyEquities portfolio (pending transfer to trust)
+- **Marius Bonthuys** — Maria's son, trustee (not the founder), earns R65k/month from personal employment, R10m life policy pending cession to trust
+- **Dajahn Nume Bonthuys** — primary beneficiary (adult, Marius's son), no Section 7(3) attribution
+- **Shone Riani Bonthuys** — primary beneficiary (minor, Marius's daughter), Section 7(3) applies while under 18 — distributions taxed at Marius's marginal rate
+
+### The Entities
+| Entity | Type | Owner | Status |
+|---|---|---|---|
+| Bonthuys Family Trust | trust | — | **Not yet registered** — pending Letters of Authority, Master of the High Court |
+| tenbucks-mobile (Pty) Ltd | company | Maria J. Bonthuys | Active — to be transferred to trust post-registration |
+| Maria J. Bonthuys (Personal) | personal | — | Pre-transfer asset tracking only |
+| Bonthuys Developments (Pty) Ltd | company | Future: trust | **Not yet incorporated** — buy-renovate-sell division |
+
+### The Strategy
+The trust is the long-term holding structure. It does not accumulate cash — it acts as:
+1. **A balance sheet** for capital assets (property, shares, company stakes) held indefinitely with no tax while held
+2. **A conduit** for income — all rental income, management fees, dividends must be distributed to beneficiaries before 28 February each year to avoid the 45% trust flat rate
+
+**Future property purchases (rental apartments) go directly into the trust** — never into tenbucks-mobile or Bonthuys Developments. The property trading/renovation business stays in Bonthuys Developments. These two must never mix (SARS mixed-intention test).
 
 This is a **completely separate project from fizzog-mobile**. No shared code, no shared Supabase project.
 
@@ -30,6 +48,7 @@ supabase/migrations/001_initial_schema.sql
 supabase/migrations/002_phase2_ledger_assets.sql
 supabase/migrations/003_phase3_tax_engine.sql
 supabase/migrations/004_trust_phase5.sql
+supabase/migrations/005_structure_correction.sql   ← run this to apply the corrected ownership structure
 ```
 
 Run accounting SQL scripts in **Supabase SQL Editor** in this order:
@@ -205,19 +224,39 @@ The annual R100,000 donations tax exemption is tracked across all active loans c
 
 ---
 
-## Known Entities & Assets (Pre-Seeded)
+## Known Entities & Assets
 
-| Entity | Type | Tax return | Year end |
+After migration 005, the system reflects the **actual current ownership**:
+
+| Entity | Type | Tax return | Owner / Status |
 |---|---|---|---|
-| Bonthuys Family Trust | trust | IT12T | 28 Feb |
-| tenbucks-mobile (Pty) Ltd | company | IT14 / IRP6 | 28 Feb |
+| Bonthuys Family Trust | trust | IT12T | Founder: Maria J. Bonthuys — not yet registered |
+| tenbucks-mobile (Pty) Ltd | company | IT14 / IRP6 | Maria J. Bonthuys — pending trust transfer |
+| Maria J. Bonthuys (Personal) | personal | IT12 | Pre-transfer asset tracking |
+| Bonthuys Developments (Pty) Ltd | company | IT14 / IRP6 | Not yet incorporated |
 
-| Asset | Entity | Type | Cost base |
-|---|---|---|---|
-| Vacant Land | tenbucks-mobile | property | R345,000 |
-| EasyEquities USD Portfolio | Bonthuys Family Trust | shares | R200,000 |
+| Asset | Current entity | Type | Cost base | Status |
+|---|---|---|---|---|
+| Vacant Land | Maria J. Bonthuys (Personal) | property | R345,000 | Maria's personal asset — pending trust transfer |
+| EasyEquities USD Portfolio | Maria J. Bonthuys (Personal) | shares | R200,000 | Maria's personal asset — pending trust transfer |
 
-The EasyEquities share lot is a placeholder — replace with actual lots from EasyEquities transaction history. Each lot needs: purchase date, quantity, USD price per unit, ZAR/USD exchange rate on that date.
+EasyEquities share lot is a placeholder — replace with actual lots. Each needs: purchase date, quantity, USD price per unit, ZAR/USD rate on that date.
+
+### Life Insurance
+Marius Bonthuys holds a R10m life policy. Currently outside the trust (`trust_owns_policy = false`). **Required action**: cede to trust after registration — saves R2m in estate duty. Trust must then pay premiums from trust funds.
+
+### Trustees (corrected)
+| Name | Role |
+|---|---|
+| Maria J. Bonthuys | Founder & Trustee |
+| Marius Bonthuys | Trustee (son of founder) |
+| Tanja Van Holdt | Independent Trustee (Attorney) |
+
+### Beneficiaries (corrected)
+| Name | Status | Section 7(3) |
+|---|---|---|
+| Dajahn Nume Bonthuys | Adult (major) | Not applicable |
+| Shone Riani Bonthuys | Minor | Applies — distributions taxed at Marius's marginal rate while under 18 |
 
 ---
 
