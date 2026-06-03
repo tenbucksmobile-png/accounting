@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bonthuys Family Trust — Registration &amp; Implementation To-Do List</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px; color:#1a1a1a; background:#fff; line-height:1.6; }
+  .page { max-width:820px; margin:0 auto; padding:52px; }
+
+  .header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:36px; padding-bottom:20px; border-bottom:3px solid #1a1a1a; }
+  .company-name { font-size:18px; font-weight:700; }
+  .company-sub { font-size:11px; color:#666; margin-top:4px; }
+  .doc-label { text-align:right; }
+  .doc-label h1 { font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+  .doc-label .period { font-size:13px; color:#555; margin-top:4px; }
+
+  .intro { background:#f8fafc; border-left:3px solid #94a3b8; padding:12px 16px; font-size:12px; color:#475569; margin-bottom:32px; line-height:1.7; }
+
+  /* Phase header */
+  .phase { margin-bottom:28px; }
+  .phase-header { display:flex; align-items:center; gap:12px; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid #e2e8f0; }
+  .phase-num { display:flex; align-items:center; justify-content:center; width:28px; height:28px; background:#1a1a1a; color:#fff; font-size:11px; font-weight:700; border-radius:50%; flex-shrink:0; }
+  .phase-title { font-size:14px; font-weight:700; }
+  .phase-subtitle { font-size:11px; color:#64748b; margin-top:1px; }
+  .phase-badge { margin-left:auto; font-size:10px; font-weight:700; text-transform:uppercase; padding:3px 8px; border-radius:3px; }
+  .badge-now { background:#fef2f2; color:#991b1b; border:1px solid #fca5a5; }
+  .badge-soon { background:#fff7ed; color:#c2410c; border:1px solid #fdba74; }
+  .badge-after { background:#f0fdf4; color:#166534; border:1px solid #86efac; }
+  .badge-ongoing { background:#f8fafc; color:#475569; border:1px solid #cbd5e1; }
+
+  /* Task items */
+  .tasks { list-style:none; }
+  .task { display:grid; grid-template-columns:24px 1fr; gap:10px; padding:10px 0; border-bottom:1px solid #f1f5f9; }
+  .task:last-child { border-bottom:none; }
+  .task-check { width:20px; height:20px; border:2px solid #cbd5e1; border-radius:4px; flex-shrink:0; margin-top:1px; }
+  .task-body {}
+  .task-title { font-weight:600; font-size:13px; margin-bottom:2px; }
+  .task-detail { font-size:11px; color:#64748b; line-height:1.6; }
+  .task-detail strong { color:#374151; }
+  .task-warning { font-size:11px; color:#92400e; background:#fffbeb; border:1px solid #fcd34d; padding:4px 8px; border-radius:3px; margin-top:4px; display:inline-block; }
+  .task-tip { font-size:11px; color:#166534; background:#f0fdf4; border:1px solid #86efac; padding:4px 8px; border-radius:3px; margin-top:4px; display:inline-block; }
+
+  /* Accounting entry boxes */
+  .journal { background:#f8f8f8; border:1px solid #e0e0e0; border-radius:4px; padding:10px 12px; margin-top:6px; font-size:11px; font-family:'Courier New',monospace; }
+  .journal .dr { color:#1e40af; }
+  .journal .cr { color:#166534; padding-left:24px; }
+  .journal .note { color:#888; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:10px; margin-top:4px; }
+
+  .sig-section { margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .sig-block { padding-top:32px; border-top:1px solid #1a1a1a; }
+  .sig-label { font-size:11px; color:#888; }
+  .sig-name { font-size:12px; margin-top:4px; font-weight:600; }
+  .sig-date { font-size:11px; color:#555; margin-top:8px; }
+
+  @media print {
+    body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .page { padding:36px; max-width:100%; }
+    .phase { page-break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div>
+    <div class="company-name">Bonthuys Family Trust</div>
+    <div class="company-sub">Registration &amp; Implementation Plan — Internal Use Only</div>
+  </div>
+  <div class="doc-label">
+    <h1>To-Do List</h1>
+    <div class="period">Priority order — June 2026 onwards</div>
+  </div>
+</div>
+
+<div class="intro">
+  <strong>How this works:</strong> The trust is a two-mode structure. Mode 1 — it holds capital assets permanently on its balance sheet (no tax while held). Mode 2 — it passes income through to beneficiaries before 28 February each year to avoid the 45% undistributed income rate. Each step below either moves an asset onto the trust's balance sheet, or puts the cash-flow infrastructure in place so income can flow through correctly.
+</div>
+
+<!-- ═══ PHASE 1 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">1</div>
+    <div>
+      <div class="phase-title">Complete the Trust Deed &amp; Register</div>
+      <div class="phase-subtitle">Prerequisites + Master of the High Court submission</div>
+    </div>
+    <span class="phase-badge badge-now">Do First</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Fill in all blank fields in the trust deed</div>
+        <div class="task-detail">
+          File: <strong>Accounts/TrustDeed-Bonthuys-Family-Trust-2026.html</strong><br>
+          Required: Maria's ID number · Marius's ID number · Tanja Van Holdt's ID number + law firm name ·
+          Dajahn Nume Bonthuys exact DOB + ID number (from birth certificate) ·
+          Shone Riani Bonthuys exact DOB + ID number (from birth certificate) ·
+          Signing date and place. Trust IT number is left blank — assigned by SARS after registration.
+        </div>
+        <div class="task-warning">⚠ Do not sign the deed until all beneficiary IDs and DOBs are confirmed from official documents.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Each trustee signs a JM21 — Acceptance of Trusteeship form</div>
+        <div class="task-detail">
+          Three separate forms: Maria J. Bonthuys · Marius Bonthuys · Tanja Van Holdt.<br>
+          Each trustee also provides a certified copy of their identity document (certified by a Commissioner of Oaths).
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Maria signs the trust deed as Founder (two witnesses present)</div>
+        <div class="task-detail">
+          Witnesses must be adults, not related to Maria, and must sign in her presence.
+          Witnesses record their full names and ID numbers on the signature page.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Submit to the Master of the High Court</div>
+        <div class="task-detail">
+          Submit: signed deed + three JM21 forms + three certified IDs + Beneficial Ownership Register +
+          proof of initial R100 donation (bank deposit slip). Confirm current Master's fee before attending.<br>
+          <strong>Venue: Master of the High Court — NOT the magistrate's court.</strong>
+        </div>
+        <div class="task-tip">✓ Turnaround is typically 3–8 weeks. Follow up if no Letters of Authority after 6 weeks.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Receive Letters of Authority from the Master</div>
+        <div class="task-detail">
+          The trust comes into legal existence upon issue of the Letters of Authority.
+          Keep the original — certified copies will be needed for every subsequent step.
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 2 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">2</div>
+    <div>
+      <div class="phase-title">Establish the Trust's Administrative Infrastructure</div>
+      <div class="phase-subtitle">Within 60 days of receiving Letters of Authority</div>
+    </div>
+    <span class="phase-badge badge-now">Immediately After Registration</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Open the trust bank account</div>
+        <div class="task-detail">
+          In the name of "The Bonthuys Family Trust." Bring: Letters of Authority (certified copy) +
+          all three trustees' IDs + trust deed. Most major banks (FNB, Nedbank, ABSA, Standard Bank)
+          have a trust account product. The account must be in the trust's name only — never combined
+          with any personal or company account.
+        </div>
+        <div class="task-warning">⚠ Nothing can flow into or out of the trust until this account exists. All subsequent steps depend on it.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Register the trust with SARS — obtain IT12T number</div>
+        <div class="task-detail">
+          Register at a SARS branch or via eFiling with the Letters of Authority and trust deed.
+          The IT12T number is the trust's unique tax reference. Update the trust deed cover page
+          and the accounting system once received.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">File the Beneficial Ownership Register with CIPC</div>
+        <div class="task-detail">
+          Required under the General Laws (Anti-Money Laundering) Amendment Act 22 of 2022.
+          Must be filed within 10 business days of trust registration and updated annually.
+          Discloses the beneficial owners (Dajahn, Shone) and controlling persons (trustees).
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Pass initial trustee resolutions (Annexure F of the trust deed)</div>
+        <div class="task-detail">
+          Resolutions required: acceptance of trusteeship · bank account mandate · SARS registration ·
+          appointment of accountants · adoption of SA tax year-end (28 Feb) · acceptance of annual
+          donations from Maria and Marius · management fee arrangement with tenbucks-mobile.
+          All three trustees must sign. Keep original resolutions in the trust minute book.
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 3 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">3</div>
+    <div>
+      <div class="phase-title">Transfer tenbucks-mobile Shares to the Trust</div>
+      <div class="phase-subtitle">Do this before the land — company equity is still low (~R25k). Every month of delay = higher CGT cost.</div>
+    </div>
+    <span class="phase-badge badge-now">Priority — Do Before Land</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Value the tenbucks-mobile shares at transfer date</div>
+        <div class="task-detail">
+          Market value = net asset value of the company at transfer date (total assets less total liabilities
+          from the management accounts). Currently approximately R25,050 (R50 share capital + R25,000 retained earnings).
+          This value increases monthly as the licensing income accumulates. Get a formal valuation or use
+          the management accounts signed off by the accountant.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Maria disposes of her shares to the trust at market value</div>
+        <div class="task-detail">
+          This is a CGT event for Maria. CGT = (market value − cost of shares) × 40% inclusion × Maria's marginal rate.
+          At current equity of ~R25,050: gain ≈ R24,950 (cost base R100 share capital). CGT is negligible at this level.
+          Execute a share transfer agreement. Update the tenbucks-mobile share register at CIPC to reflect the trust as new shareholder.
+        </div>
+        <div class="task-journal">
+          <div class="journal">
+            <div class="dr">Dr &nbsp;Investment in tenbucks-mobile (Trust asset) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R25,050</div>
+            <div class="cr">Cr &nbsp;Loan from Maria J. Bonthuys (Trust liability) &nbsp;&nbsp;&nbsp;&nbsp; R25,050</div>
+            <div class="note">Trust owes Maria the market value of the shares transferred. S7C applies — charge 9.25% interest annually or deem it a donation within the R100k exemption.</div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Update CIPC — tenbucks-mobile share register</div>
+        <div class="task-detail">
+          File the share transfer with CIPC. The new registered shareholder is:
+          <strong>"The Bonthuys Family Trust (IT ______/______)"</strong>.
+          This is the legal record of the trust's ownership — the trust deed does not record this.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Update CIPC Beneficial Ownership Register for tenbucks-mobile</div>
+        <div class="task-detail">
+          Now that the trust owns the company, the Beneficial Ownership Register of tenbucks-mobile
+          must be updated to reflect the trust as the registered shareholder, and the underlying
+          beneficial owners (Dajahn and Shone as trust beneficiaries).
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 4 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">4</div>
+    <div>
+      <div class="phase-title">Transfer the Vacant Stand to the Trust</div>
+      <div class="phase-subtitle">Sell at market value — trust creates a S7C loan payable to Maria. Write down via annual donations.</div>
+    </div>
+    <span class="phase-badge badge-soon">Within 6 Months of Registration</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Obtain a formal valuation of the vacant stand</div>
+        <div class="task-detail">
+          Commission a registered property valuer. The transfer price to the trust must be at
+          market value to avoid a deemed donation exceeding the annual exemption on the difference.
+          Current estimated value: R345,000 (original cost — no improvements, no development).
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Maria sells the land to the trust via a conveyancer</div>
+        <div class="task-detail">
+          Engage a conveyancer to transfer the title deed from Maria's personal name to
+          "The Bonthuys Family Trust." Transfer duty at R345,000 = <strong>R0</strong>
+          (below the R1,100,000 threshold for 2026). Conveyancing fees approx. R15,000–R20,000.
+          The trust pays Maria the market value via a loan (added to the existing loan account from the share transfer).
+        </div>
+        <div class="task-journal">
+          <div class="journal">
+            <div class="dr">Dr &nbsp;Investment Property — Vacant Stand (Trust asset) &nbsp; R345,000</div>
+            <div class="cr">Cr &nbsp;Loan from Maria J. Bonthuys (Trust liability) &nbsp;&nbsp;&nbsp;&nbsp; R345,000</div>
+            <div class="note">Added to the same loan account as the share transfer (or a separate account). S7C: charge 9.25% interest on the total loan balance each year. Write down R100k/year via annual donation — full balance eliminated in ~3–4 years.</div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Sign the S7C loan agreement (Annexure E of the trust deed)</div>
+        <div class="task-detail">
+          Formalise the total loan (shares + land) in a written loan agreement signed by Maria
+          (as lender) and the trustees (as borrowers). Interest at 9.25% p.a. payable by 28 February each year.
+          Record in the trust's books and the accounting system.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Begin annual write-down: Maria donates R100k of the loan per year</div>
+        <div class="task-detail">
+          Each year, Maria forgives R100,000 of the outstanding loan balance as a donation within her
+          annual exemption (no donations tax). The annual interest charged (R345k × 9.25% ≈ R31,913)
+          also counts toward the R100k exemption — leaving approximately R68,000 available for
+          principal write-down. Loan fully eliminated in approximately 4 years.
+        </div>
+        <div class="task-journal">
+          <div class="journal">
+            <div class="dr">Dr &nbsp;Loan from Maria J. Bonthuys (reduce liability) &nbsp;&nbsp;&nbsp; R100,000</div>
+            <div class="cr">Cr &nbsp;Capital Contribution — Maria J. Bonthuys (equity) &nbsp; R100,000</div>
+            <div class="note">Passed annually before 28 Feb by trustee resolution. Also record the interest charge separately before writing it down.</div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 5 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">5</div>
+    <div>
+      <div class="phase-title">Begin Management Fee Payments</div>
+      <div class="phase-subtitle">tenbucks-mobile pays the trust a monthly fee — no DWT, deductible at 27% CIT</div>
+    </div>
+    <span class="phase-badge badge-soon">Once Trust Bank Account is Open</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Draft and execute a management fee service agreement</div>
+        <div class="task-detail">
+          A written agreement between tenbucks-mobile (Pty) Ltd and The Bonthuys Family Trust.
+          The trust provides oversight, governance, and administrative services to the company.
+          Fee: R5,000–R10,000/month (market-related — must be arm's-length and justified by real services).
+          Supported by: trustee resolutions · monthly invoices from the trust to the company · minutes.
+        </div>
+        <div class="task-warning">⚠ SARS scrutinises management fees between connected parties. Keep real minutes of trustee meetings, document the services provided, and issue monthly invoices with proper references.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">tenbucks-mobile raises the management fee monthly</div>
+        <div class="task-detail">
+          Company posts the expense monthly. Trust receives the income monthly.
+        </div>
+        <div class="task-journal">
+          <div class="journal">
+            <div class="dr">Dr &nbsp;Management Fee — Bonthuys Family Trust (company expense) &nbsp; R7,500</div>
+            <div class="cr">Cr &nbsp;Bank (company) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R7,500</div>
+          </div>
+          <div class="journal" style="margin-top:4px;">
+            <div class="dr">Dr &nbsp;Bank (trust) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R7,500</div>
+            <div class="cr">Cr &nbsp;Management Fee Income — tenbucks-mobile (trust income) &nbsp; R7,500</div>
+          </div>
+        </div>
+        <div class="task-tip">✓ This income arrives in the trust WITHOUT DWT (it is not a dividend). Must be distributed to beneficiaries before 28 Feb each year.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Marius donates R100k to trust annually (his annual exemption)</div>
+        <div class="task-detail">
+          Marius transfers R100,000 to the trust bank account each SA tax year (before 28 Feb).
+          This is a capital contribution — no S7C, no donations tax.
+          Recorded as an increase in trust capital (equity), not income.
+          Combined with Maria's R100k: R200,000/year in tax-free capital building up for property deposits.
+        </div>
+        <div class="task-journal">
+          <div class="journal">
+            <div class="dr">Dr &nbsp;Bank (trust) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R100,000</div>
+            <div class="cr">Cr &nbsp;Capital Contribution — Marius Bonthuys (trust equity) &nbsp;&nbsp;&nbsp; R100,000</div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 6 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">6</div>
+    <div>
+      <div class="phase-title">Cede the Life Policy to the Trust</div>
+      <div class="phase-subtitle">Marius's R10m policy — moves R10m outside his estate. Saves R2m in estate duty.</div>
+    </div>
+    <span class="phase-badge badge-soon">Within 3 Months of Trust Bank Account Opening</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Obtain the policy schedule from the insurer</div>
+        <div class="task-detail">
+          Confirm: policy number · insurer name · current sum assured (R10,000,000) ·
+          annual premium · current owner (Marius) · current beneficiary nomination.
+          Update the trust's accounting system with these details.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Execute the cession of the policy to the trust</div>
+        <div class="task-detail">
+          Marius signs the insurer's cession forms, transferring ownership of the policy to
+          "The Bonthuys Family Trust." The trust becomes the owner and the beneficiary.
+          Requires: Letters of Authority (certified copy) + trustee resolution accepting the cession.
+        </div>
+        <div class="task-warning">⚠ The cession must be absolute (full ownership transfer), not merely a nomination. A nomination keeps the policy in Marius's estate — only full ownership by the trust removes it.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Trust takes over premium payments from trust bank account</div>
+        <div class="task-detail">
+          From the date of cession, premiums must be paid from the trust's bank account — not from
+          Marius's personal account. If Marius continues paying personally, SARS may argue he retained
+          a beneficial interest and include the policy in his estate. Fund the trust premium payments
+          from the management fee income received from tenbucks-mobile.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Update the accounting system</div>
+        <div class="task-detail">
+          In the trust's life policy record: set <strong>trust_owns_policy = true</strong>,
+          enter the policy number, insurer, and annual premium.
+          Record the annual premium payment as an expense in the trust's accounts.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Update Marius's Will to reference the cession</div>
+        <div class="task-detail">
+          Marius's Will must include the specimen clause from Annexure G of the trust deed:
+          recording that the policy has been ceded to the trust and that proceeds do not form
+          part of his estate. Also include the trust acknowledgement clause and the loan account clause.
+          Maria's Will must similarly exclude trust assets and deal with her loan account against the trust.
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 7 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">7</div>
+    <div>
+      <div class="phase-title">First Rental Apartment Purchase</div>
+      <div class="phase-subtitle">Trust buys directly — not via any company. Targets R1.2m per unit, 1 per year.</div>
+    </div>
+    <span class="phase-badge badge-after">When Trust Has R240k Deposit Available</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Accumulate the deposit in the trust bank account</div>
+        <div class="task-detail">
+          Target: R240,000 (20% deposit on R1.2m apartment). Sources: Maria's R100k donation +
+          Marius's R100k donation (Year 1 = R200k) + management fee surplus. Top up as needed.
+          Banks typically require 10–20% deposit for investment property bonds.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Apply for the bond in the trust's name</div>
+        <div class="task-detail">
+          The trust applies for a residential investment property bond. Maria and Marius stand as
+          personal sureties (banks require this for trust bonds). Bond serviceability is assessed on
+          the trust's income (management fees) plus the rental income from the property itself.
+          Marius's R65k/month personal income strengthens the surety position significantly.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Purchase — title in the trust's name</div>
+        <div class="task-detail">
+          The conveyancer registers the property in the name of "The Bonthuys Family Trust."
+          Record in the accounting system as Investment Property (trust asset) with the bond as
+          a trust liability. This is a CAPITAL ASSET — it never mixes with Bonthuys Developments' trading stock.
+        </div>
+        <div class="task-journal">
+          <div class="journal">
+            <div class="dr">Dr &nbsp;Investment Property — Apartment 1 (trust asset) &nbsp;&nbsp;&nbsp; R1,200,000</div>
+            <div class="cr">Cr &nbsp;Mortgage Bond — Investment Properties (liability) &nbsp;&nbsp; R960,000</div>
+            <div class="cr">Cr &nbsp;Bank — Trust Account (deposit paid) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; R240,000</div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Distribute rental income to beneficiaries before each 28 February</div>
+        <div class="task-detail">
+          Gross rental → deduct bond interest + rates + levies + maintenance = net distributable income.
+          Pass trustee resolution to distribute to Dajahn Nume Bonthuys (adult, lowest effective rate).
+          Record the income character as "rental" (S25B passthrough). Repeat every year before year-end.
+        </div>
+        <div class="task-tip">✓ The bond capital repayment is NOT an expense — it reduces the bond liability. Only the interest portion is deductible and flows through the income calculation.</div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- ═══ PHASE 8 ═══════════════════════════════════════════════════════════════ -->
+
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num">8</div>
+    <div>
+      <div class="phase-title">Ongoing Annual Obligations</div>
+      <div class="phase-subtitle">Every year — non-negotiable compliance and tax discipline</div>
+    </div>
+    <span class="phase-badge badge-ongoing">Annual — Before 28 Feb</span>
+  </div>
+
+  <ul class="tasks">
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Trustee meeting — pass annual distribution resolution</div>
+        <div class="task-detail">
+          Before 28 February each year: all three trustees meet (or sign a written resolution) and
+          formally distribute all trust income to beneficiaries. Specify amounts, beneficiary names,
+          and income character (rental / management fee / capital gain). Tanja must sign.
+          This is the single most important annual action — it prevents the 45% undistributed income tax.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Maria and Marius each donate R100k to the trust</div>
+        <div class="task-detail">
+          Transfer R100,000 each from personal accounts to the trust bank account before 28 Feb.
+          Recorded as capital contributions (not income). Builds deposit reserve for the next apartment.
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Maria forgives R100k of the loan balance as annual donation</div>
+        <div class="task-detail">
+          This is separate from the R100k capital donation above — Maria uses her annual exemption
+          to write down the loan she is owed by the trust (from the land/share transfers).
+          Note: the interest charged on the loan also counts against the R100k exemption.
+          Signed addendum to the loan agreement + trustee resolution required.
+        </div>
+        <div class="task-warning">⚠ Maria has one R100k annual exemption. Coordinate the loan write-down and any other donations she makes in the same tax year so the total does not exceed R100k without triggering 20% donations tax on the excess.</div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">File the trust's IT12T tax return with SARS</div>
+        <div class="task-detail">
+          Annual income tax return for the trust. Discloses all income received, distributions made,
+          and calculates tax (45% on any undistributed amount). If all income is distributed, tax = minimal.
+          Deadline: confirmed by SARS each year (typically October–January for the prior tax year).
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Update CIPC Beneficial Ownership Register annually</div>
+        <div class="task-detail">
+          The trust's BO register must be updated if any trustees, beneficiaries, or holdings change.
+          Also update the BO register of tenbucks-mobile annually (now owned by the trust).
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <div class="task-check"></div>
+      <div class="task-body">
+        <div class="task-title">Review EasyEquities portfolio transfer (Maria's personal holding)</div>
+        <div class="task-detail">
+          Still held in Maria's personal name. Coordinate the transfer to the trust once the
+          land loan write-down capacity allows (Maria's annual R100k exemption is being used for
+          the loan write-down — the EasyEquities donation may need to wait until the loan is cleared,
+          or be structured as a sale-at-cost with a separate loan, subject to tax advice).
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- Signature block -->
+<div class="sig-section">
+  <div class="sig-block">
+    <div class="sig-label">Prepared by</div>
+    <div class="sig-name">Marius Bonthuys</div>
+    <div class="sig-date">Date: ___________________________</div>
+  </div>
+  <div class="sig-block">
+    <div class="sig-label">Reviewed by</div>
+    <div class="sig-name">Maria Jacoba Bonthuys</div>
+    <div class="sig-date">Date: ___________________________</div>
+  </div>
+</div>
+
+<div style="margin-top:40px;padding-top:16px;border-top:1px solid #ddd;font-size:10px;color:#999;text-align:center;">
+  THE BONTHUYS FAMILY TRUST — Implementation To-Do List &nbsp;|&nbsp; June 2026 &nbsp;|&nbsp; Internal use — confidential &nbsp;|&nbsp; Review annually
+</div>
+
+</div>
+</body>
+</html>
